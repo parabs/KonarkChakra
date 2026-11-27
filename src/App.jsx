@@ -92,7 +92,7 @@ function App() {
       <section className="collective section" aria-labelledby="collective-title">
         <div className="container">
           <div className="collective-intro"><div><p className="eyebrow">Collective initiative</p><h2 id="collective-title">A project brought together by Thane’s Odia community.</h2></div><p>Led by Thane Odia Association, with the support and participation of Odia associations and community groups across Thane.</p></div>
-          <div className="association-row"><div className="toa-card"><Image src="toa_logo.png" alt="Thane Odia Association logo"/><div><b>Lead organisation</b><span>Thane Odia Association</span></div></div>{Array.from({length:7},(_,i)=><div className="association-placeholder" key={i}><span>Association logo</span></div>)}</div>
+          <div className="association-row"><div className="toa-card"><Image src="toa_logo.png" alt="Thane Odia Association logo"/><div><b>Lead organisation</b><span>Thane Odia Association</span></div></div><div className="community-note"><span className="community-mark">✳</span><div><b>One community. A shared endeavour.</b><span>Odia associations, community groups, families and volunteers across Thane</span></div></div></div>
         </div>
       </section>
 
