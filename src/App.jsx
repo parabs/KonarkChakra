@@ -5,6 +5,7 @@ import {
   Database, Wallet, ShieldCheck, Mail, Phone, Instagram, CheckCircle2
 } from 'lucide-react';
 import { createDonation, submitPaymentReference } from './lib/donations.js';
+import AdminAccess from './components/AdminAccess.jsx';
 
 const A = '/assets/';
 const nav = [
@@ -69,7 +70,7 @@ function App() {
           <span className="brand-seal">KCP</span><span>KONARK CHAKRA<br/>PROJECT · THANE</span>
         </a>
         <nav className="desktop-nav">{nav.map(([label, href]) => <a key={href} href={href}>{label}</a>)}</nav>
-        <a className="nav-cta" href="#sponsorship"><Heart size={15}/> Contribute</a>
+        <div className="nav-actions"><a className="nav-donations" href="#sponsorship">Donations</a><a className="nav-cta" href="/admin">Admin Login</a></div>
         <button className="menu-toggle" onClick={() => setMenuOpen(!menuOpen)} aria-label="Toggle navigation">{menuOpen ? <X/> : <Menu/>}</button>
       </div>
       {menuOpen && <nav className="mobile-nav">{[...nav, ['Governance','#governance'],['Contact','#contact']].map(([label,href]) => <a key={href} href={href} onClick={closeMenu}>{label}</a>)}</nav>}
