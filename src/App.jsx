@@ -8,7 +8,7 @@ import DonationsApp from './components/DonationsApp.jsx';
 const A = '/assets/';
 const nav = [
   ['Project', '#project'], ['The Chakra', '#monument'], ['Location', '#location'],
-  ['Why it matters', '#why-this-project'], ['Updates', '#updates'], ['FAQs', '#faq'], ['Support', '#contribute']
+  ['Why it matters', '#why-this-project'], ['Updates', '#updates'], ['FAQs', '#faq']
 ];
 
 function Image({ src, alt, className = '' }) {
