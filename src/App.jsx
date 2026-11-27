@@ -6,11 +6,12 @@ import {
 } from 'lucide-react';
 import { createDonation, submitPaymentReference } from './lib/donations.js';
 import AdminAccess from './components/AdminAccess.jsx';
+import DonationsApp from './components/DonationsApp.jsx';
 
 const A = '/assets/';
 const nav = [
   ['Project', '#project'], ['The Chakra', '#monument'], ['Location', '#location'],
-  ['Updates', '#updates'], ['Support', '#sponsorship']
+  ['Updates', '#updates'], ['Support', '/donations']
 ];
 
 function Image({ src, alt, className = '' }) {
@@ -70,7 +71,7 @@ function App() {
           <span className="brand-seal">KCP</span><span>KONARK CHAKRA<br/>PROJECT · THANE</span>
         </a>
         <nav className="desktop-nav">{nav.map(([label, href]) => <a key={href} href={href}>{label}</a>)}</nav>
-        <div className="nav-actions"><a className="nav-donations" href="#sponsorship">Donations</a><a className="nav-cta" href="/admin">Admin Login</a></div>
+        <div className="nav-actions"><a className="nav-donations" href="/donations">Donations</a><a className="nav-cta" href="/admin">Admin Login</a></div>
         <button className="menu-toggle" onClick={() => setMenuOpen(!menuOpen)} aria-label="Toggle navigation">{menuOpen ? <X/> : <Menu/>}</button>
       </div>
       {menuOpen && <nav className="mobile-nav">{[...nav, ['Governance','#governance'],['Contact','#contact']].map(([label,href]) => <a key={href} href={href} onClick={closeMenu}>{label}</a>)}</nav>}
@@ -160,29 +161,6 @@ function App() {
         </div>
       </section>
 
-      <section className="section sponsorship-section" id="sponsorship">
-        <div className="container">
-          <SectionHeading eyebrow="Contribute to the project" title="Contribution levels.">
-            Individuals and families can support the project through the contribution levels below. Contributions of other amounts may also be accepted through the verified payment process.
-          </SectionHeading>
-          <div className="tier-grid">
-            <button className={tier === 'Surya Patron' ? 'tier-card selected' : 'tier-card'} onClick={() => selectTier('Surya Patron',25000)}><Image src="contribution_surya_patron_sun.png" alt="Sun icon"/><small>Contribution level</small><h3>Surya Patron</h3><strong>₹25,000</strong><p>Contribution towards stone procurement, carving and artisan work.</p></button>
-            <button className={tier === 'Chakra Partner' ? 'tier-card selected' : 'tier-card'} onClick={() => selectTier('Chakra Partner',10000)}><Image src="contribution_chakra_partner_wheel.png" alt="Chakra wheel icon"/><small>Contribution level</small><h3>Chakra Partner</h3><strong>₹10,000</strong><p>Contribution towards transport, foundation and installation costs.</p></button>
-            <button className={tier === 'Shilpi Supporter' ? 'tier-card selected' : 'tier-card'} onClick={() => selectTier('Shilpi Supporter',5000)}><Image src="contribution_shilpi_supporter_tool.png" alt="Artisan tool icon"/><small>Contribution level</small><h3>Shilpi Supporter</h3><strong>₹5,000</strong><p>Contribution towards the project’s approved expenses.</p></button>
-          </div>
-          <div className="sponsorship-bottom">
-            <div className="fund-use"><h3>Planned use of funds</h3>{[
-              ['fund_stone_procurement_carving.png','Stone procurement and carving','Odisha'],
-              ['fund_artisan_charges.png','Artisan charges','Carving'],
-              ['fund_transportation.png','Transportation','Logistics'],
-              ['fund_foundation_civil_works.png','Foundation and civil works','Thane'],
-              ['fund_engineering_installation.png','Engineering and installation','Execution']
-            ].map(([img,label,meta])=><div className="fund-row" key={label}><Image src={img} alt=""/><span>{label}</span><em>{meta}</em></div>)}<p>A component-wise project budget and expenditure updates should be published after the budget and reporting process are approved.</p></div>
-            <div className="institutional"><h3>Institutional support</h3><p>Organisations may contact the project team to discuss sponsorship or in-kind support such as stone, transport, equipment and professional services.</p><p>Any corporate or CSR support will be considered only after eligibility, documentation and applicable legal requirements are reviewed.</p><a className="text-link" href="#contact">Institutional enquiry <ArrowRight size={16}/></a></div>
-          </div>
-        </div>
-      </section>
-
       <section className="section governance-section" id="governance">
         <div className="container">
           <SectionHeading eyebrow="Project management" title="Roles and accountability.">
@@ -239,7 +217,7 @@ function App() {
       </section>
     </main>
     <footer className="footer"><div className="container"><img className="footer-temple" src="/assets/ornate-golden-heritage-temple.png" alt="" aria-hidden="true"/><b>THANE ODIA ASSOCIATION · KONARK CHAKRA PROJECT</b><span>PROJECT INFORMATION · CONTRIBUTIONS · UPDATES</span><img className="footer-temple" src="/assets/ornate-golden-heritage-temple.png" alt="" aria-hidden="true"/></div></footer>
-    <a className="mobile-contribute" href="#donation-form">Contribute to the project <ArrowDown size={16}/></a>
+    <a className="mobile-contribute" href="/donations">Contribute to the project <ArrowDown size={16}/></a>
   </>;
 }
 
