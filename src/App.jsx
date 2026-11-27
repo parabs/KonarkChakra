@@ -14,7 +14,7 @@ const nav = [
 function Image({ src, alt, className = '' }) {
   const [failed, setFailed] = useState(false);
   if (failed) return <div className={`asset-fallback ${className}`} role="img" aria-label={alt}><span>Konark Chakra Project</span></div>;
-  return <img className={className} src={A + src} alt={alt} loading="lazy" onError={() => setFailed(true)} />;
+  return <img className={className} src={A + src} alt={alt} loading={src === "toa_logo.png" ? "eager" : "lazy"} onError={() => setFailed(true)} />;
 }
 
 function SectionHeading({ eyebrow, title, children }) {
