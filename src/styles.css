@@ -527,3 +527,29 @@ html { scroll-padding-top: 90px; }
     object-fit: cover;
   }
 }
+
+
+/* Project stages: enlarge the six stage illustrations to use the available
+   horizontal and vertical space while keeping every icon frame consistent. */
+@media (min-width: 1101px) {
+  .stage-card img {
+    width: clamp(104px, 8vw, 124px);
+    height: clamp(104px, 8vw, 124px);
+    margin-bottom: 14px;
+  }
+  .stage-card {
+    padding-top: 20px;
+  }
+}
+@media (min-width: 721px) and (max-width: 1100px) {
+  .stage-card img {
+    width: 96px;
+    height: 96px;
+  }
+}
+@media (max-width: 720px) {
+  .stage-card img {
+    width: 76px;
+    height: 76px;
+  }
+}
