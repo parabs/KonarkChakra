@@ -733,3 +733,144 @@ html { scroll-padding-top: 90px; }
     font-size: clamp(32px, 8.5vw, 40px);
   }
 }
+
+
+/* Donations and admin pages — complete responsive presentation */
+.konark-donation-page,
+.konark-admin-page {
+  min-height:100vh;
+  background:#f2eee5;
+  color:#29251f;
+  font-family:var(--sans, "DM Sans", Arial, sans-serif);
+}
+.konark-donation-header {
+  position:sticky; top:0; z-index:20;
+  height:76px; padding:0 max(28px, calc((100% - 1500px)/2));
+  display:grid; grid-template-columns:1fr auto 1fr; align-items:center; gap:20px;
+  background:#17130f; border-bottom:1px solid rgba(197,163,108,.45);
+}
+.konark-donation-header .konark-back,
+.konark-donation-header .konark-header-admin {color:#e8ddca;font-size:12px;letter-spacing:.04em}
+.konark-donation-header .konark-back:hover,
+.konark-donation-header .konark-header-admin:hover {color:#d9b875}
+.konark-mini-brand {grid-column:2;color:#f4ead8;font-size:11px;letter-spacing:.17em;text-align:center}
+.konark-mini-brand span {color:#d1b47e}
+.konark-header-admin {justify-self:end}
+.konark-funding-info {
+  width:min(90%,1500px); margin:clamp(34px,5vw,68px) auto 0;
+  display:grid; grid-template-columns:1.08fr .92fr; gap:22px; align-items:stretch;
+}
+.konark-funds-panel,.konark-sponsor-panel {
+  min-width:0; padding:clamp(24px,3vw,42px);
+  border:1px solid #d9cfbd; background:#faf8f2;
+}
+.konark-funds-panel h2,.konark-sponsor-panel h2 {
+  margin:0 0 22px; color:#2d261f;
+  font:500 clamp(26px,2.4vw,34px)/1.15 var(--serif, Georgia,serif);
+}
+.konark-funds-panel dl {
+  display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; margin:0 0 22px;
+}
+.konark-funds-panel dl>div {
+  min-height:76px; padding:14px 16px; display:flex; flex-direction:column; justify-content:center; gap:5px;
+  background:#eee7d9; border-left:2px solid #c5a36c;
+}
+.konark-funds-panel dt {font-size:13px;font-weight:700;color:#44382b}
+.konark-funds-panel dd {margin:0;color:#80664b;font:14px/1.3 var(--serif,Georgia,serif)}
+.konark-funds-panel>p,.konark-sponsor-panel>p {margin:0 0 14px;color:#65594b;font-size:14px;line-height:1.75}
+.konark-sponsor-panel {display:flex;flex-direction:column;align-items:flex-start;background:linear-gradient(145deg,#e9e0d0,#f6f1e7)}
+.konark-sponsor-panel:before {content:"PARTNERSHIPS · MATERIALS · EXPERTISE";display:block;margin:0 0 18px;color:#936844;font-size:9px;font-weight:700;letter-spacing:.19em}
+.konark-sponsor-panel h2 {max-width:520px}
+.konark-sponsor-panel .konark-sponsor-cta {
+  display:inline-flex;align-items:center;justify-content:center;min-height:46px;margin-top:auto;padding:0 20px;
+  background:#80543a;color:#fff;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+}
+.konark-sponsor-panel .konark-sponsor-cta:hover {background:#68412c}
+.konark-donation-shell {
+  width:min(90%,1500px); margin:clamp(36px,5vw,68px) auto 76px;
+  display:grid;grid-template-columns:minmax(0,.88fr) minmax(0,1.12fr);
+  gap:clamp(28px,4.5vw,72px);align-items:start;
+}
+.konark-donation-intro {padding:26px 0 0;max-width:620px}
+.konark-donation-intro h1 {font:500 clamp(42px,4.6vw,66px)/1.03 var(--serif,Georgia,serif);letter-spacing:-.04em;color:#29251f;margin:10px 0 22px}
+.konark-donation-intro>p:not(.eyebrow) {font:500 clamp(17px,1.45vw,21px)/1.62 var(--serif,Georgia,serif);color:#5e5143}
+.konark-trust-note {margin-top:30px;padding:18px 20px;background:#e8e0d2;border:0;border-left:3px solid #c5a36c;color:#625442;font-size:12px;line-height:1.7}
+.konark-donation-form,.konark-success {
+  min-width:0;padding:clamp(24px,3vw,42px);background:#fffdf8;
+  border:1px solid #ded4c5;box-shadow:0 18px 48px rgba(55,39,22,.07);
+}
+.konark-donation-form h2,.konark-success h2 {font:500 clamp(26px,2.5vw,34px)/1.15 var(--serif,Georgia,serif);color:#30271f;margin:0 0 22px}
+.konark-donation-form .konark-tier-options {display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:0 0 30px}
+.konark-donation-form .konark-tier-option {
+  display:flex;min-width:0;min-height:190px;flex-direction:column;align-items:flex-start;gap:9px;
+  padding:17px 15px;text-align:left;white-space:normal;cursor:pointer;
+  background:#f5f0e6;border:1px solid #ded2bf;color:#33291f;
+  transition:border-color .18s ease,background .18s ease,transform .18s ease,box-shadow .18s ease;
+}
+.konark-donation-form .konark-tier-option:hover {transform:translateY(-2px);border-color:#b18b5a}
+.konark-donation-form .konark-tier-option.is-selected {background:#eee2cb;border:2px solid #9a6a43;box-shadow:inset 0 0 0 1px rgba(154,106,67,.12)}
+.konark-tier-option span {font-size:9px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:#92734f}
+.konark-tier-option strong {font:600 clamp(15px,1.25vw,18px)/1.25 var(--serif,Georgia,serif);overflow-wrap:anywhere}
+.konark-tier-option b {font-size:20px;color:#805137}
+.konark-tier-option small {font-size:11px;line-height:1.5;color:#6d6255}
+.konark-donation-form>label {margin-bottom:18px}
+.konark-donation-form label {color:#6e5a44;font-size:11px;letter-spacing:.08em;text-transform:uppercase}
+.konark-donation-form input,.konark-donation-form select {
+  height:48px;border:1px solid #d8cebf;background:#fffefa;border-radius:0;color:#30291f;
+}
+.konark-donation-form input:focus,.konark-donation-form select:focus {border-color:#9b6748;box-shadow:0 0 0 3px rgba(155,103,72,.1)}
+.konark-amount-hint {font-size:11px;line-height:1.5;color:#887966}
+.konark-payment-warning {margin:18px 0;padding:15px 17px;background:#f4ecdd;border-left:3px solid #b58b53;color:#6e573b;font-size:12px;line-height:1.65}
+.konark-primary {min-height:50px;padding:0 24px;background:#805137;color:white;transition:background .18s ease,transform .18s ease}
+.konark-primary:hover:not(:disabled) {background:#67402b;transform:translateY(-1px)}
+.konark-form-foot {line-height:1.7}
+.konark-donation-footer {background:#17130f;color:#d8c7a8;border:0}
+.konark-admin-page {background:radial-gradient(ellipse at 50% 0%,#eee4d3 0%,#f2eee5 52%,#e9e2d6 100%)}
+.konark-admin-page .konark-admin-shell {
+  width:min(90%,980px);margin:clamp(34px,5vw,68px) auto 80px;padding:clamp(26px,4vw,48px);
+  background:#fffdf8;border:1px solid #ded4c5;box-shadow:0 18px 48px rgba(55,39,22,.08);
+}
+.konark-admin-heading {max-width:650px;margin:0 auto 34px}
+.konark-admin-heading h1 {font:500 clamp(38px,4vw,56px)/1.05 var(--serif,Georgia,serif);letter-spacing:-.035em;color:#29251f}
+.konark-admin-heading>p:not(.eyebrow) {font-size:14px;line-height:1.7;color:#756858}
+.konark-admin-mark {width:64px;height:64px;background:#f3ecdf;border-color:#c5a36c;color:#805137}
+.konark-admin-form {max-width:480px;padding:28px;background:#f7f3eb;border:1px solid #e4dacb}
+.konark-admin-form label,.konark-verify-form label {font-size:11px;letter-spacing:.09em;text-transform:uppercase}
+.konark-admin-form input,.konark-verify-form input {height:49px;border-radius:0;background:#fffefa}
+.konark-admin-toolbar {padding:18px 0;border-color:#e5dbcb;color:#4d4032}
+.konark-admin-toolbar button,.konark-pin button {min-height:40px;border-color:#d2c2ac;background:#f8f2e8;color:#70472f}
+.konark-verify-form {padding:24px 0}
+.konark-queue {border-top:1px solid #e5dbcb}
+.konark-queue-item {padding:18px 10px;border-color:#eee6db}
+.konark-queue-item strong {font-size:14px;color:#3a3026}
+.konark-queue-item>b {font-size:15px;color:#805137}
+.konark-admin-note {margin-top:22px;padding:16px 18px;background:#f4ecdd;border-left:3px solid #b58b53;color:#705c42;font-size:12px}
+.konark-admin-foot {margin-top:28px;padding-top:18px;border-top:1px solid #e8dfd2;text-align:center}
+@media(max-width:900px) {
+  .konark-funding-info {width:calc(100% - 48px);grid-template-columns:1fr;gap:14px}
+  .konark-donation-shell {width:calc(100% - 48px);grid-template-columns:1fr;gap:28px}
+  .konark-donation-intro {max-width:760px;padding-top:0}
+  .konark-donation-intro h1 {max-width:700px}
+}
+@media(max-width:620px) {
+  .konark-donation-header {height:66px;padding:0 14px;grid-template-columns:1fr auto;gap:8px}
+  .konark-donation-header .konark-back {font-size:11px}
+  .konark-mini-brand {grid-column:2;font-size:8px;letter-spacing:.1em}
+  .konark-header-admin {display:none}
+  .konark-funding-info,.konark-donation-shell {width:calc(100% - 32px)}
+  .konark-funding-info {margin-top:24px}
+  .konark-funds-panel,.konark-sponsor-panel {padding:22px}
+  .konark-funds-panel dl {grid-template-columns:1fr 1fr;gap:8px}
+  .konark-funds-panel dl>div {min-height:78px;padding:12px}
+  .konark-donation-shell {margin:32px auto 48px}
+  .konark-donation-form,.konark-success {padding:22px 18px}
+  .konark-donation-form .konark-tier-options {grid-template-columns:1fr;gap:9px}
+  .konark-donation-form .konark-tier-option {min-height:0;display:grid;grid-template-columns:1fr auto;align-items:center;gap:6px 12px;padding:14px}
+  .konark-tier-option span,.konark-tier-option small {grid-column:1/-1}
+  .konark-tier-option strong {grid-column:1}
+  .konark-tier-option b {grid-column:2;grid-row:2}
+  .konark-admin-page .konark-admin-shell {width:calc(100% - 32px);margin:24px auto 48px;padding:22px 18px}
+  .konark-admin-form {padding:20px 16px}
+  .konark-verify-form {grid-template-columns:1fr}
+  .konark-queue-item {grid-template-columns:1fr auto;gap:8px}
+}
