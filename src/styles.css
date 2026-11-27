@@ -151,3 +151,71 @@ button,input,select{font:inherit}
 }
 @media(max-width:390px){.container{width:calc(100% - 30px)}.stage-grid{grid-template-columns:1fr 1fr}.contact-grid{grid-template-columns:1fr}.bank-details>div{grid-template-columns:1fr;gap:4px}.hero h1{font-size:50px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important}}
+
+
+/* Consolidated five-section editorial layout */
+.project-community{padding:54px 0 72px;background:#eee8dc url("/assets/elegant-sepia-temple-heritage-banner.png") center/cover no-repeat;background-blend-mode:screen}
+.project-community>.container:first-child{padding-bottom:34px}
+.project-community>.container+.container{padding-top:42px;border-top:1px solid rgba(91,73,50,.2)}
+.project-community .collective-intro{grid-template-columns:1.15fr .85fr;gap:48px;margin-bottom:24px}
+.project-community .collective h2{max-width:720px}
+.project-community .section-heading{max-width:920px;margin-bottom:28px}
+.project-community .feature-card>img{height:260px}
+.heritage-location{padding:64px 0;background:linear-gradient(180deg,#e9e3d7 0%,#f8f5ee 100%)}
+.heritage-location>.container+.container{margin-top:64px;padding-top:48px;border-top:1px solid #d6cbbb}
+.heritage-location .heritage-grid{gap:52px;grid-template-columns:.9fr 1.1fr}
+.heritage-location .heritage-image img{height:460px}
+.heritage-location .section-heading{max-width:850px;margin-bottom:28px}
+.heritage-location .location-grid{grid-template-columns:1.2fr 1fr 1fr;gap:18px}
+.heritage-location .location-grid img,.heritage-location .location-grid figure:first-child img{height:220px}
+.journey-updates{padding:64px 0;background:#eee8dc}
+.journey-updates>.container+.container{margin-top:54px;padding-top:44px;border-top:1px solid #d0c4b2}
+.journey-updates .section-heading{margin-bottom:26px}
+.journey-updates .stage-grid{grid-template-columns:repeat(6,minmax(0,1fr));gap:18px}
+.journey-updates .stage-card img{width:48px;height:48px;margin-bottom:12px}
+.journey-updates .updates-grid{gap:24px}
+.journey-updates .updates-grid img{height:175px}
+.complete-support{padding:64px 0;background:#292820;color:#f4eee3}
+.complete-support>.container+.container{margin-top:50px;padding-top:42px;border-top:1px solid rgba(215,189,142,.3)}
+.complete-support>.container:nth-of-type(3){margin-top:42px}
+.complete-support .section-heading{margin-bottom:28px}
+.complete-support .contribution-layout{grid-template-columns:1.1fr .8fr;gap:52px}
+.complete-support .donation-layout{grid-template-columns:1.05fr .8fr;gap:52px}
+.complete-support .contribution-layout h2,.complete-support .donation-layout h2{color:#fffaf0}
+.complete-support .contribution-layout .section-lead,.complete-support .donation-layout .section-lead{color:#d1c8b8}
+.complete-support .bank-details{border-color:rgba(215,189,142,.35)}
+.complete-support .bank-details>div{border-color:rgba(215,189,142,.16)}
+.complete-support .bank-details b,.complete-support .bank-details span{color:#e2d7c5}
+.complete-support .image-caption{color:#cfc6b7}
+.complete-support .qr-panel,.complete-support .payment-next{background:#39352d;color:#f4eee3;border-top-color:#c6a36c}
+.complete-support .qr-placeholder{background:#f8f5ee;color:#75654e}
+.complete-support .payment-next ol,.complete-support .payment-next p{color:#d1c8b8}
+.complete-support .donation-form label,.complete-support .payment-next label{color:#d8cbb6}
+.governance-contact{padding:64px 0 50px;background:#e9e3d7}
+.governance-contact>.container+.container{margin-top:50px;padding-top:42px;border-top:1px solid #cfc5b5}
+.governance-contact .contact-section{background:transparent;color:var(--ink)}
+.governance-contact .contact-section h2{color:var(--ink)}
+.governance-contact .contact-section .section-lead{color:#62594e}
+.governance-contact .contact-grid{border-color:#cfc5b5}
+.governance-contact .contact-grid b{color:var(--rust)}
+.governance-contact .contact-grid span{color:#51483d}
+.governance-contact .contact-grid svg{color:var(--rust)}
+@media(max-width:1000px){
+ .project-community .feature-card>img{height:220px}
+ .journey-updates .stage-grid{grid-template-columns:repeat(3,1fr);row-gap:28px}
+}
+@media(max-width:720px){
+ .project-community,.heritage-location,.journey-updates,.complete-support,.governance-contact{padding:48px 0}
+ .project-community>.container+.container,.heritage-location>.container+.container,.journey-updates>.container+.container,.complete-support>.container+.container,.governance-contact>.container+.container{margin-top:36px;padding-top:32px}
+ .project-community .collective-intro{grid-template-columns:1fr;gap:14px}
+ .project-community .feature-card>img{height:235px}
+ .heritage-location .heritage-grid{grid-template-columns:1fr;gap:28px}
+ .heritage-location .heritage-image img{height:330px}
+ .heritage-location .location-grid{grid-template-columns:1fr}
+ .heritage-location .location-grid img,.heritage-location .location-grid figure:first-child img{height:220px}
+ .journey-updates .stage-grid{grid-template-columns:repeat(2,1fr)}
+ .journey-updates .updates-grid{grid-template-columns:1fr}
+ .journey-updates .updates-grid img{height:210px}
+ .complete-support .contribution-layout,.complete-support .donation-layout{grid-template-columns:1fr;gap:30px}
+ .governance-contact .contact-grid{grid-template-columns:1fr 1fr}
+}
