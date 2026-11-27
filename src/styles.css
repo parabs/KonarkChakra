@@ -335,3 +335,11 @@
 .konark-sponsor-cta{display:inline-flex;margin-top:6px;padding:16px 24px;background:#c9a96d;color:#21180f;font:700 10px Arial,sans-serif;letter-spacing:.12em;text-transform:uppercase}
 @media(max-width:760px){.nav-actions{gap:10px}.nav-admin-link{font-size:9px}.nav-cta{display:inline-flex!important}.konark-funding-info{grid-template-columns:1fr;margin-top:22px}.konark-funds-panel,.konark-sponsor-panel{padding:22px}.konark-donation-header{padding:0 14px;gap:8px}.konark-header-admin{font-size:9px}}
 @media(max-width:430px){.konark-mini-brand{display:none}.konark-donation-header{justify-content:space-between}}
+/* Reference-matched governance cards: six responsibilities in a balanced 3 × 2 grid. */
+.governance-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:18px 20px;border:0}
+.governance-card{display:block;min-height:150px;padding:28px 30px;background:#f8f5ee;border:1px solid #d4c5aa}
+.governance-card small{display:block;color:#8d4a2b;font-size:10px;letter-spacing:.13em;text-transform:uppercase;margin-bottom:18px}
+.governance-card p{font:18px/1.45 var(--serif);color:#342a20;margin:0}
+@media(max-width:900px){.governance-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:600px){.governance-grid{grid-template-columns:1fr;gap:12px}.governance-card{min-height:0;padding:22px}}
+@media(min-width:901px){.updates-section>.container{grid-template-columns:minmax(250px,.78fr) minmax(0,2.22fr);gap:24px 34px}.updates-section .section-heading{grid-column:1;grid-row:1;min-width:0}.updates-section .updates-grid{grid-column:2;grid-row:1;min-width:0}.updates-section .section-heading h2{font-size:clamp(30px,3vw,43px);line-height:1.08;max-width:390px}.updates-section .section-lead{font-size:16px;line-height:1.62;max-width:360px}.updates-section .updates-grid article{grid-template-columns:minmax(76px,104px) minmax(0,1fr);column-gap:12px}.updates-section .updates-grid img{width:100%;height:104px;grid-row:1/4}.updates-section .updates-grid h3{font-size:clamp(15px,1.2vw,18px);line-height:1.25}.updates-section .updates-grid p{font-size:11px;line-height:1.5}}
