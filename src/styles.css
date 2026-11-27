@@ -289,124 +289,49 @@ html { scroll-padding-top: 90px; }
 }
 
 
-/* Desktop viewport composition: one complete content section per screen.
-   Sections are never clipped; if a screen is unusually short, natural scrolling
-   is retained rather than hiding content. */
-@media (min-width: 1101px) and (min-height: 760px) {
-  :root { --section-space: 24px; --content-gap: 24px; }
-  html { scroll-padding-top: 82px; }
-  .topbar { height: 82px; }
-  .section {
-    min-height: calc(100svh - 82px);
-    box-sizing: border-box;
-    padding: 26px 0;
-    display: flex;
-    align-items: center;
-  }
-  .section > .container { width: min(90%, 1600px); margin-inline: auto; }
-  .section-heading { margin-bottom: 18px; }
-  .section-heading h2 { font-size: clamp(38px, 3.55vw, 54px); line-height: 1.02; margin-bottom: 8px; }
-  .section-lead { font-size: clamp(15px, 1.15vw, 18px); line-height: 1.42; }
-  .collective { padding-block: 24px; }
-  .collective-intro { gap: 34px; margin-bottom: 18px; }
-  .collective-intro h2 { font-size: clamp(38px, 3.5vw, 54px); line-height: 1.02; }
-  .collective-intro > p { font-size: clamp(15px, 1.12vw, 18px); line-height: 1.42; }
-  .association-row { padding-top: 12px; gap: 24px; }
-  .toa-card { display:flex; align-items:center; gap:16px; min-height:64px; }
-  .toa-card img { display:block; width:82px; height:62px; object-fit:contain; flex:0 0 82px; }
-  .project-section .section-heading { max-width: 1080px; margin-bottom: 18px; }
-  .project-section .feature-card > img { height: clamp(190px, 24vh, 250px); object-fit:cover; }
-  .project-section .feature-copy { padding-top:10px; }
-  .project-section .feature-copy h3 { font-size: clamp(20px, 1.55vw, 25px); }
-  .project-section .feature-copy p { font-size:13px; line-height:1.4; }
-  .heritage-content { grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:34px; }
-  .heritage-copy h2 { font-size:clamp(34px, 3.1vw, 48px); }
-  .heritage-copy p { font-size:13px; line-height:1.4; }
-  .heritage-copy .heritage-lead { font-size:clamp(16px, 1.2vw, 19px); line-height:1.4; }
-  .heritage-copy blockquote { font-size:13px; margin:8px 0; }
-  .heritage-copy .check-list { font-size:12px; margin:7px 0; }
-  .heritage-copy .image-caption { font-size:10px; }
-  .heritage-image img { height:clamp(270px, 43vh, 390px); }
-  .why-section .section-heading { margin-bottom:22px; }
-  .why-section .feature-grid { gap:26px; }
-  .why-section .feature-card { padding-top:13px; }
-  .why-section .feature-copy h3 { font-size:clamp(20px, 1.55vw, 25px); }
-  .why-section .feature-copy p { font-size:13px; line-height:1.45; }
-  .location-section .section-heading { margin-bottom:18px; }
-  .location-grid img { height:clamp(190px, 24vh, 250px); }
-  .location-section > .container > .image-caption { font-size:10px; margin-top:7px; }
-  .site-callout { margin-top:10px; padding:10px 0; }
-  .site-callout h3 { font-size:18px; }
-  .site-callout p { font-size:11px; }
-  .site-callout .button { min-height:42px; padding:0 18px; }
-  .stages-section .section-heading { margin-bottom:20px; }
-  .stage-grid { padding-top:12px; gap:14px; }
-  .stage-card { padding-top:12px; }
-  .stage-card img { width:clamp(54px, 5vw, 68px); height:clamp(54px, 5vw, 68px); margin-bottom:7px; }
-  .stage-card p { font-size:12px; line-height:1.35; }
-  .stages-section .disclaimer { margin-top:12px; padding:8px 10px; }
-  .updates-section .section-heading { margin-bottom:18px; }
-  .updates-grid { gap:24px; }
-  .updates-grid article > img { height:clamp(190px, 24vh, 250px); margin-bottom:9px; }
-  .updates-grid h3 { font-size:clamp(19px, 1.5vw, 24px); }
-  .updates-grid p { font-size:12px; line-height:1.4; }
-  .faq-section > .container { grid-template-columns:minmax(250px,.72fr) minmax(0,1.6fr); gap:30px; }
-  .faq-section .section-heading h2 { font-size:clamp(34px, 3.2vw, 48px); }
-  .faq-item { padding:9px 0; }
-  .faq-item summary { font-size:15px; padding-block:4px; }
-  .faq-item p { font-size:12px; line-height:1.42; margin-top:6px; }
-  .contribution-details { padding-block:26px; }
-  .contribution-layout { gap:28px; }
-  .contribution-layout h2 { font-size:clamp(36px, 3.4vw, 50px); }
-  .contribution-layout .section-lead { font-size:15px; line-height:1.45; }
-  .contribution-layout > div:nth-child(2) { padding:26px; }
-  .contribution-layout > div:nth-child(2) h3 { font-size:clamp(22px, 2.1vw, 30px); }
-  .contribution-layout > div:nth-child(2) p { font-size:13px; line-height:1.45; }
-  .governance-section .section-heading { margin-bottom:18px; }
-  .governance-section .section-heading h2 { font-size:clamp(36px, 3.4vw, 50px); }
-  .governance-section .section-lead { font-size:14px; line-height:1.4; }
-  .governance-grid { gap:12px; }
-  .governance-card { min-height:96px; padding:14px 18px; }
-  .governance-card p { font-size:14px; line-height:1.32; }
-  .contact-section h2 { font-size:clamp(40px, 4vw, 58px); }
-  .contact-section .section-lead { font-size:15px; line-height:1.42; }
-  .contact-grid { margin-top:20px; gap:14px; }
-  .contact-grid article { min-height:126px; padding:16px 18px; }
-}
 
-/* The association mark is a required identity asset, not an off-screen lazy image. */
 .toa-card img { visibility: visible; opacity: 1; }
 
 
-/* Desktop cleanup: normal document flow at 100% browser zoom.
-   Do not force every content section to occupy a full viewport. */
-@media (min-width: 1101px) {
+
+
+/* Desktop correction: content determines section height.
+   Browser zoom must not change the page into a stack of forced viewport panels. */
+@media (min-width: 721px) {
   .section {
     min-height: 0 !important;
     height: auto !important;
     display: block !important;
     align-items: initial !important;
-    padding: clamp(38px, 3.4vw, 58px) 0 !important;
+    padding-block: clamp(42px, 4vw, 64px) !important;
   }
   .collective.section {
-    padding-top: clamp(34px, 3vw, 48px) !important;
-    padding-bottom: clamp(34px, 3vw, 48px) !important;
+    padding-block: clamp(36px, 3.5vw, 52px) !important;
+  }
+  .section > .container {
+    width: min(90%, 1600px);
+    margin-inline: auto;
   }
   .toa-card {
-    min-width: 340px;
+    display: flex;
+    align-items: center;
     gap: 18px;
+    min-width: 0;
   }
   .toa-card img {
-    display: block;
-    visibility: visible;
-    opacity: 1;
-    width: 142px !important;
-    height: 92px !important;
-    flex: 0 0 142px;
-    object-fit: contain;
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    width: clamp(130px, 11vw, 170px) !important;
+    height: 86px !important;
+    max-width: none;
+    flex: 0 0 clamp(130px, 11vw, 170px);
+    object-fit: contain !important;
     object-position: left center;
   }
   .association-row {
+    display: grid;
+    grid-template-columns: minmax(300px, .85fr) minmax(0, 1.15fr);
     align-items: center;
     gap: clamp(24px, 3vw, 48px);
   }
