@@ -1,113 +1,75 @@
-import React, { useState } from 'react';
-import { ArrowLeft, LockKeyhole, LogOut, ShieldCheck } from 'lucide-react';
-
-const CONFIG_BOOTSTRAP_URL =
-  import.meta.env.VITE_SJST_CONFIG_BOOTSTRAP_URL ||
-  'https://script.google.com/macros/s/AKfycbxglEayhs9nPXWpa43RB5u0DpJl6FVJa9jH8XWL6H12x-ax8H4oOQD23RewCBRcxpfSjw/exec';
-
-async function authenticate(volunteerCode, pin) {
-  const configResponse = await fetch(`${CONFIG_BOOTSTRAP_URL}?action=get_config`);
-  if (!configResponse.ok) throw new Error('Unable to connect to the administration service.');
-  const configResult = await configResponse.json();
-  const backendUrl = configResult?.config?.api?.backendUrl;
-  if (!configResult?.success || !backendUrl) {
-    throw new Error(configResult?.error || 'Administration service configuration is unavailable.');
-  }
-
-  const response = await fetch(backendUrl, {
-    method: 'POST',
-    headers: { 'Content-Type': 'text/plain;charset=utf-8' },
-    body: JSON.stringify({
-      action: 'authenticateVolunteer',
-      volunteerCode: volunteerCode.trim().toUpperCase(),
-      pin: pin.trim()
-    }),
-    redirect: 'follow'
-  });
-  const raw = await response.text();
-  let result;
-  try { result = JSON.parse(raw); }
-  catch { throw new Error('The authentication service returned an invalid response.'); }
-  if (!response.ok || !result.success || !result.volunteer) {
-    throw new Error(result.error || 'Invalid Volunteer ID or PIN.');
-  }
-  return result.volunteer;
-}
+import React, { useEffect, useState } from 'react';
+import { ArrowLeft, LogOut, RefreshCw, ShieldCheck } from 'lucide-react';
+import { backendGet, backendPost } from '../lib/konarkBackend.js';
 
 export default function AdminAccess() {
-  const [volunteerCode, setVolunteerCode] = useState('');
-  const [pin, setPin] = useState('');
-  const [volunteer, setVolunteer] = useState(() => {
-    try {
-      const saved = sessionStorage.getItem('konark_admin_session');
-      return saved ? JSON.parse(saved) : null;
-    } catch { return null; }
-  });
-  const [busy, setBusy] = useState(false);
-  const [error, setError] = useState('');
-
-  const login = async (event) => {
-    event.preventDefault();
-    setError('');
-    if (!volunteerCode.trim() || !/^\\d{4}$/.test(pin.trim())) {
-      setError('Enter your Volunteer ID and 4-digit PIN.');
-      return;
-    }
-    setBusy(true);
-    try {
-      const result = await authenticate(volunteerCode, pin);
-      const safeProfile = {
-        volunteerCode: result.volunteerCode,
-        volunteerName: result.volunteerName,
-        role: result.role || 'Volunteer',
-        status: result.status
-      };
-      sessionStorage.setItem('konark_admin_session', JSON.stringify(safeProfile));
-      setVolunteer(safeProfile);
-      setPin('');
-    } catch (err) {
-      setError(err.message || 'Unable to sign in. Please try again.');
-    } finally { setBusy(false); }
+  const [credentials,setCredentials] = useState({code:'',pin:''});
+  const [volunteer,setVolunteer] = useState(null);
+  const [queue,setQueue] = useState([]);
+  const [busy,setBusy] = useState(false);
+  const [loading,setLoading] = useState(false);
+  const [message,setMessage] = useState('');
+  const [error,setError] = useState('');
+  const [verifyPin,setVerifyPin] = useState('');
+  const [direct,setDirect] = useState({name:'',email:'',mobile:'',amount:'',purpose:'General project contribution',mode:'Cash'});
+  const [showDirect,setShowDirect] = useState(false);
+  const [actionBusy,setActionBusy] = useState('');
+  const loadQueue = async () => {
+    setLoading(true); setError('');
+    try { const result=await backendGet('get_pending_queue'); setQueue(Array.isArray(result.pendingQueue)?result.pendingQueue:[]); setMessage(`Loaded ${result.count || 0} pending contribution(s).`); }
+    catch(e) { setError(e.message || 'Unable to load pending contributions.'); }
+    finally { setLoading(false); }
   };
-
-  const logout = () => {
-    sessionStorage.removeItem('konark_admin_session');
-    setVolunteer(null);
-    setVolunteerCode('');
-    setPin('');
+  const login = async e => {
+    e.preventDefault(); setBusy(true); setError(''); setMessage('');
+    if (!/^\d{4}$/.test(credentials.pin.trim())) { setError('Enter your 4-digit PIN.'); setBusy(false); return; }
+    try {
+      const result=await backendPost({action:'authenticateVolunteer',volunteerCode:credentials.code.trim().toUpperCase(),pin:credentials.pin.trim()});
+      if(!result.success || !result.volunteer) throw new Error(result.error || 'Invalid Volunteer ID or PIN.');
+      const v=result.volunteer;
+      const profile={volunteerCode:v.volunteerCode,volunteerName:v.volunteerName,role:v.role || 'Volunteer',status:v.status};
+      setVolunteer(profile); setCredentials(v=>({...v,pin:''}));
+    } catch(e) { setError(e.message || 'Unable to authenticate.'); }
+    finally { setBusy(false); }
   };
-
-  return (
-    <main className="admin-access">
-      <div className="admin-access-card">
-        <a className="admin-back-link" href="/"><ArrowLeft size={16}/> Back to project website</a>
-        <div className="admin-access-mark"><ShieldCheck size={27}/></div>
-        <p className="eyebrow">Konark Chakra Project · Thane</p>
-        {volunteer ? (
-          <>
-            <h1>Admin access</h1>
-            <p className="admin-access-lead">Signed in as <strong>{volunteer.volunteerName}</strong>.</p>
-            <div className="admin-session">
-              <span>Volunteer ID</span><strong>{volunteer.volunteerCode}</strong>
-              <span>Access role</span><strong>{volunteer.role}</strong>
-            </div>
-            <p className="admin-access-note">Your sign-in has been verified by the existing administration service. The administration workspace will be presented here as the project’s requirements are confirmed.</p>
-            <button className="button button-rust admin-submit" onClick={logout}><LogOut size={16}/> Sign out</button>
-          </>
-        ) : (
-          <>
-            <h1>Admin login</h1>
-            <p className="admin-access-lead">This area is for authorised project administrators and volunteers.</p>
-            <form onSubmit={login} className="admin-login-form">
-              <label>Volunteer ID<input autoComplete="username" value={volunteerCode} onChange={e=>setVolunteerCode(e.target.value)} placeholder="Enter Volunteer ID" required/></label>
-              <label>Security PIN<input autoComplete="current-password" type="password" inputMode="numeric" maxLength={4} value={pin} onChange={e=>setPin(e.target.value.replace(/\\D/g,'').slice(0,4))} placeholder="4-digit PIN" required/></label>
-              {error && <p className="admin-login-error" role="alert">{error}</p>}
-              <button className="button button-rust admin-submit" type="submit" disabled={busy}><LockKeyhole size={16}/>{busy ? 'Verifying…' : 'Sign in securely'}</button>
-            </form>
-            <p className="admin-access-note">Credentials are checked against the existing volunteer register. Do not share your PIN.</p>
-          </>
-        )}
-      </div>
-    </main>
-  );
+  useEffect(()=>{ if(volunteer) loadQueue(); },[!!volunteer]);
+  const verify = async e => {
+    e.preventDefault(); if(!verifyPin.trim()) return;
+    setActionBusy('verify'); setError(''); setMessage('');
+    try {
+      const matched = queue.find(item => String(item.confirmationCode || '') === verifyPin.trim());
+      const result=await backendPost({action:'verifyDonation',confirmationCode:verifyPin.trim(),confirmedBy:volunteer.volunteerCode,volunteerName:volunteer.volunteerName});
+      if(!result.success) throw new Error(result.error || 'Verification failed.');
+      setVerifyPin('');
+      setMessage(matched?.donationId ? `Contribution ${matched.donationId} verified. Receipt generation is held until Konark-specific receipt configuration is installed.` : 'Contribution verification submitted. Refresh the queue to confirm the updated status.');
+      await loadQueue();
+    } catch(e) { setError(e.message || 'Verification failed.'); }
+    finally { setActionBusy(''); }
+  };
+  const submitDirect = async e => {
+    e.preventDefault(); setActionBusy('direct'); setError(''); setMessage('');
+    try {
+      const now = new Date().toISOString();
+      const id = await backendGet('get_next_donation_id');
+      if (!id.donationId) throw new Error('Could not generate a contribution reference.');
+      const record = {donationId:String(id.donationId),submittedAt:now,createdAt:now,updatedAt:now,donorName:direct.name.trim(),email:direct.email.trim(),mobile:direct.mobile.trim(),phone:direct.mobile.trim(),amount:Number(direct.amount),paymentMode:direct.mode,paymentStatus:'Paid',paymentReference:'COUNTER-DIRECT',receiptUrl:'',emailStatus:direct.email?'Pending':'Not Required',emailMessageId:'',confirmedBy:volunteer.volunteerCode,volunteerName:volunteer.volunteerName,confirmationCode:'',sevaCategory:'Konark Chakra Project',sevaHead:direct.purpose};
+      await backendPost({action:'sync_donation',donationId:record.donationId,timestamp:new Date().toLocaleString('en-IN'),donorName:record.donorName,mobile:record.mobile,phone:record.phone,email:record.email,amount:record.amount,paymentMode:record.paymentMode,towards:record.sevaHead,confirmationCode:'',paymentStatus:'Paid',confirmedBy:record.confirmedBy,volunteerName:record.volunteerName,receiptUrl:'',submittedAt:record.submittedAt,createdAt:record.createdAt,updatedAt:record.updatedAt,record});
+      setMessage('Counter contribution recorded. Receipt can be requested from the backend once the record is available.');
+      setDirect({name:'',email:'',mobile:'',amount:'',purpose:'General project contribution',mode:'Cash'});
+      await loadQueue();
+    } catch(e) { setError(e.message || 'Unable to record counter contribution.'); }
+    finally { setActionBusy(''); }
+  };
+  const logout=()=>{setVolunteer(null);setQueue([]);setVerifyPin('');setMessage('');setError('');};
+  return <main className="konark-admin-page"><header className="konark-donation-header"><a href="/" className="konark-back"><ArrowLeft size={16}/> Project website</a><div className="konark-mini-brand">KONARK CHAKRA PROJECT <span>· ADMIN</span></div></header>
+    <div className="konark-admin-shell"><div className="konark-admin-heading"><div className="konark-admin-mark"><ShieldCheck size={26}/></div><p className="eyebrow">Authorised access</p><h1>{volunteer?'Contribution verification':'Admin login'}</h1><p>{volunteer?`Signed in as ${volunteer.volunteerName} · ${volunteer.role}`:'Sign in with your existing volunteer ID and 4-digit PIN.'}</p></div>
+    {!volunteer ? <form className="konark-admin-form" onSubmit={login}><label>Volunteer ID<input required autoComplete="username" value={credentials.code} onChange={e=>setCredentials(v=>({...v,code:e.target.value}))}/></label><label>4-digit PIN<input required type="password" inputMode="numeric" maxLength={4} autoComplete="current-password" value={credentials.pin} onChange={e=>setCredentials(v=>({...v,pin:e.target.value.replace(/\D/g,'').slice(0,4)}))}/></label><button className="konark-primary" disabled={busy}>{busy?'Verifying…':'Sign in'}</button></form> : <>
+      <div className="konark-admin-toolbar"><span>Pending contribution verification</span><button onClick={loadQueue} disabled={loading}><RefreshCw size={15}/>{loading?'Refreshing':'Refresh'}</button><button onClick={logout}><LogOut size={15}/>Sign out</button></div>
+      <form className="konark-verify-form" onSubmit={verify}><label>6-digit contributor PIN<input required inputMode="numeric" maxLength={6} value={verifyPin} onChange={e=>setVerifyPin(e.target.value.replace(/\D/g,'').slice(0,6))} placeholder="Enter PIN shown by contributor"/></label><button className="konark-primary" disabled={actionBusy==='verify'}>{actionBusy==='verify'?'Verifying…':'Verify contribution'}</button></form>
+      <div className="konark-queue">{queue.length===0?<p className="konark-empty">No pending contributions returned by the service.</p>:queue.map((item,i)=><article className="konark-queue-item" key={item.donationId || item.confirmationCode || i}><div><strong>{item.donorName || 'Contributor'}</strong><span>{item.donationId || 'Reference pending'} · {item.sevaHead || item.towards || 'Project contribution'}</span></div><b>₹{Number(item.amount || 0).toLocaleString('en-IN')}</b></article>)}</div>
+      <p className="konark-admin-note">Receipt generation is intentionally disabled while the temporary SJST backend is in use. Enable it only after Konark-specific receipt identity, sender, Drive folder and template settings are configured.</p>
+    </>}
+    {message&&<p className="konark-message" role="status">{message}</p>}{error&&<p className="konark-error" role="alert">{error}</p>}
+    <p className="konark-admin-foot">Temporary backend connection · Konark identity and payment details are kept separate from SJST.</p></div>
+  </main>;
 }
