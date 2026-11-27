@@ -670,3 +670,119 @@
   .faq-section .section-heading h2 { font-size:34px; }
   .heritage-image img { height:260px; }
 }
+
+
+/* Desktop compact-fit pass: reduce vertical waste so each content section
+   presents its heading, supporting copy and visual/subsection together. */
+@media (min-width: 1200px) {
+  .section { padding-top: 30px; padding-bottom: 32px; }
+
+  .project-section .section-heading,
+  .location-section .section-heading,
+  .why-section .section-heading,
+  .stages-section .section-heading,
+  .updates-section .section-heading,
+  .faq-section .section-heading,
+  .governance-section .section-heading {
+    margin-bottom: 18px;
+  }
+  .project-section .section-heading h2,
+  .location-section .section-heading h2,
+  .why-section .section-heading h2,
+  .stages-section .section-heading h2,
+  .updates-section .section-heading h2,
+  .faq-section .section-heading h2,
+  .governance-section .section-heading h2 {
+    font-size: clamp(34px, 3.15vw, 48px);
+    line-height: 1.04;
+    margin-bottom: 8px;
+  }
+  .project-section .section-lead,
+  .location-section .section-lead,
+  .why-section .section-lead,
+  .stages-section .section-lead,
+  .updates-section .section-lead,
+  .faq-section .section-lead,
+  .governance-section .section-lead {
+    font-size: 15px;
+    line-height: 1.48;
+  }
+
+  /* Project: large enough to read, but leave room for titles and descriptions. */
+  .project-section { padding-top: 28px; padding-bottom: 30px; }
+  .project-section .section-heading { max-width: 980px; }
+  .project-section .feature-grid { gap: 18px; margin-top: 20px; }
+  .project-section .feature-card > img { height: clamp(170px, 14vw, 220px); }
+  .project-section .feature-copy { padding-top: 9px; }
+  .project-section .feature-copy h3 { font-size: 19px; margin: 5px 0; }
+  .project-section .feature-copy p { font-size: 12px; line-height: 1.45; }
+
+  /* Why it matters: compact heading then three evenly aligned text panels. */
+  .why-section { padding-top: 30px; padding-bottom: 32px; }
+  .why-section .section-heading { margin-bottom: 17px; }
+  .why-section .feature-grid { margin-top: 16px; gap: 20px; }
+  .why-section .feature-card { padding-top: 12px; }
+  .why-section .feature-copy h3 { font-size: 19px; margin: 5px 0; }
+  .why-section .feature-copy p { font-size: 12px; line-height: 1.48; }
+
+  /* Location: keep the three visuals consistent and the planning callout visible. */
+  .location-section { padding-top: 28px; padding-bottom: 26px; }
+  .location-section .section-heading { margin-bottom: 14px; }
+  .location-grid { gap: 16px; margin-top: 14px; }
+  .location-grid img,
+  .location-grid figure:first-child img {
+    height: clamp(150px, 13vw, 190px);
+    object-fit: cover;
+    object-position: center;
+  }
+  .location-grid figcaption { padding: 6px 0; font-size: 12px; }
+  .location-section .image-caption { margin-top: 8px; font-size: 9px; }
+  .site-callout { margin-top: 10px; padding: 10px 0 0; gap: 18px; }
+  .site-callout h3 { font-size: 17px; margin-bottom: 3px; }
+  .site-callout p { font-size: 11px; line-height: 1.4; }
+  .site-callout .button { padding: 11px 16px; font-size: 10px; }
+
+  /* Stages: six compact milestones in one horizontal band. */
+  .stages-section { padding-top: 28px; padding-bottom: 28px; }
+  .stages-section .section-heading { margin-bottom: 14px; }
+  .stage-grid { margin-top: 14px; gap: 10px; padding-top: 18px; }
+  .stage-card img { width: 54px; height: 54px; margin-bottom: 7px; }
+  .stage-card p { font-size: 11px; line-height: 1.35; margin-top: 5px; }
+  .stages-section .disclaimer { margin-top: 10px; padding: 7px 10px; }
+
+  /* Updates retain the approved large, image-led Netflix-style card treatment. */
+  .updates-section { padding-top: 28px; padding-bottom: 30px; }
+  .updates-section .section-heading { margin-bottom: 12px; }
+  .updates-section .updates-grid { margin-top: 18px; gap: 18px; }
+  .updates-section .updates-grid img { height: clamp(170px, 14vw, 220px); }
+  .updates-section .updates-grid article { padding-bottom: 10px; }
+  .updates-section .updates-grid h3 { font-size: 18px; margin: 4px 0; }
+  .updates-section .updates-grid p { font-size: 12px; line-height: 1.45; }
+
+  /* Collective intro and association strip share one compact screen. */
+  .collective { padding-top: 30px; padding-bottom: 28px; }
+  .collective-intro { gap: 34px; margin-bottom: 15px; }
+  .collective-intro h2 { font-size: clamp(36px, 3.3vw, 48px); line-height: 1.02; }
+  .collective-intro > p { font-size: 15px; line-height: 1.48; padding-left: 18px; }
+  .association-row { padding-top: 12px; gap: 20px; }
+  .toa-card img { width: 52px; height: 44px; }
+  .community-note { min-height: 56px; padding-left: 20px; }
+  .community-note b { font-size: 14px; }
+  .community-note span { font-size: 10px; }
+
+  /* FAQ and governance: reduce heading/card height without shrinking readability. */
+  .faq-section { padding-top: 28px; padding-bottom: 30px; }
+  .faq-section > .container { gap: 24px 36px; }
+  .faq-item { padding: 10px 0; }
+  .faq-item summary { font-size: 15px; padding: 9px 30px 9px 0; }
+  .faq-item p { font-size: 11px; line-height: 1.45; margin-top: 6px; }
+
+  .governance-section { padding-top: 30px; padding-bottom: 32px; }
+  .governance-section .section-heading { margin-bottom: 16px; }
+  .governance-section .section-heading h2 { max-width: 1000px; font-size: clamp(36px, 3.2vw, 48px); }
+  .governance-section .section-lead { max-width: 1000px; font-size: 15px; line-height: 1.48; }
+  .governance-grid { gap: 12px 14px; margin-top: 16px; }
+  .governance-card { min-height: 112px; padding: 17px 20px; }
+  .governance-card small { margin-bottom: 8px; font-size: 9px; }
+  .governance-card p { font-size: 14px; line-height: 1.38; }
+}
