@@ -188,7 +188,7 @@ html { scroll-padding-top: 90px; }
 .updates-section .section-heading { max-width:1100px; margin-bottom:26px; }
 .updates-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:var(--content-gap); margin:0; }
 .updates-grid article { display:flex; flex-direction:column; min-width:0; border-bottom:1px solid var(--line); padding:0 0 12px; }
-.updates-grid article > img { display:block; width:100%; height:clamp(210px,27vh,280px); object-fit:cover; margin:0 0 12px; }
+.updates-grid article > img { display:block; width:100%; height:clamp(260px,34vh,360px); object-fit:cover; margin:0 0 12px; }
 .updates-grid small { font-size:10px; margin-bottom:6px; }
 .updates-grid h3 { font:600 clamp(20px,1.7vw,26px)/1.2 var(--serif); margin:0 0 7px; }
 .updates-grid p { font-size:13px; line-height:1.5; margin:0; }
@@ -234,7 +234,7 @@ html { scroll-padding-top: 90px; }
   .section-heading h2 { font-size:clamp(34px,4.5vw,48px); }
   .project-section .feature-card > img,
   .location-grid img,
-  .updates-grid article > img { height:clamp(190px,24vw,245px); }
+  .updates-grid article > img { height:clamp(220px,28vw,290px); }
   .stage-grid { grid-template-columns:repeat(3,minmax(0,1fr)); row-gap:24px; }
   .stage-card img { width:70px; height:70px; }
   .heritage-content { gap:28px; }
