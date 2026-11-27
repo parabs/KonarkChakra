@@ -26,7 +26,7 @@ function SectionHeading({ eyebrow, title, children }) {
   </div>;
 }
 
-function App() {
+function HomePage() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [tier, setTier] = useState('Surya Patron');
   const [amount, setAmount] = useState('25000');
@@ -179,37 +179,6 @@ function App() {
         </div>
       </section>
 
-      <section className="section contribution-details" id="contribute">
-        <div className="container contribution-layout">
-          <div><p className="eyebrow">Contribution details</p><h2>Contributions are received by Thane Odia Association.</h2><p className="section-lead">Use only the bank or UPI details verified and published by Thane Odia Association. The details below are placeholders and must be completed before this page is made public.</p>
-            <div className="bank-details">{[['Account name','Thane Odia Association'],['Bank name','[Insert verified bank name]'],['Account number','[Insert verified account number]'],['IFSC','[Insert verified IFSC]'],['Branch','[Insert verified branch]'],['UPI ID','[Insert verified UPI ID]']].map(([k,v])=><div key={k}><b>{k}</b><span>{v}</span></div>)}</div>
-            <p className="image-caption">Confirm the account name, bank details and payment instructions with the association before transferring funds.</p>
-          </div>
-          <div className="qr-panel"><div className="qr-placeholder">Official payment QR<br/><small>Insert only after verification against the association’s account</small></div><p>Receipt and acknowledgement procedure: [Insert the association-approved process and contact.]</p></div>
-        </div>
-      </section>
-
-      <section className="section donation-section" id="donation-form">
-        <div className="container donation-layout">
-          <div><p className="eyebrow">Make a contribution</p><h2>Support the Konark Chakra Project.</h2><p className="section-lead">Choose a contribution level, share your details and continue with the verified bank or UPI payment instructions.</p>
-            <form className="donation-form" onSubmit={startDonation}>
-              <label>Contribution level<select value={tier} onChange={e=>{setTier(e.target.value);setAmount(e.target.value==='Surya Patron'?'25000':e.target.value==='Chakra Partner'?'10000':e.target.value==='Shilpi Supporter'?'5000':'');}}><option>Surya Patron</option><option>Chakra Partner</option><option>Shilpi Supporter</option><option>Other contribution</option></select></label>
-              <label>Contribution amount (₹)<input type="number" min="1" required value={amount} onChange={e=>{setAmount(e.target.value);if(!['5000','10000','25000'].includes(e.target.value))setTier('Other contribution');}}/></label>
-              <label>Full name<input required value={donor.name} onChange={e=>setDonor({...donor,name:e.target.value})} autoComplete="name"/></label>
-              <label>Email address<input required type="email" value={donor.email} onChange={e=>setDonor({...donor,email:e.target.value})} autoComplete="email"/></label>
-              <label>Phone / WhatsApp<input required type="tel" value={donor.phone} onChange={e=>setDonor({...donor,phone:e.target.value})} autoComplete="tel"/></label>
-              <button className="button button-rust" disabled={busy}>{busy?'Please wait…':'Continue to payment details'}</button>
-            </form>
-            {notice && <div className="form-notice" role="status">{notice}</div>}
-          </div>
-          <div className="payment-next">
-            <h3>{donation ? 'Your contribution reference' : 'How payment works'}</h3>
-            {donation ? <><p><b>Reference:</b> {donation.donationId || donation.reference || 'Created'}</p><p>Complete your transfer using the verified bank or UPI details above. Then submit the transfer reference below.</p><form onSubmit={sendUtr}><label>UTR / transaction reference<input required value={utr} onChange={e=>setUtr(e.target.value)}/></label><label>Transfer date<input required type="date" value={transferDate} onChange={e=>setTransferDate(e.target.value)}/></label><button className="button button-rust" disabled={busy}>{busy?'Submitting…':'Submit payment reference'}</button></form></> : <ol><li>Submit your donor details to create a contribution reference.</li><li>Transfer the contribution using the verified bank or UPI details.</li><li>Submit your UTR / transaction reference for verification.</li><li>After the payment is confirmed, your receipt will be sent to your email.</li></ol>}
-            <p className="receipt-note"><ShieldCheck size={17}/> Receipts are generated only after the receiving organisation confirms the payment.</p>
-          </div>
-        </div>
-      </section>
-
       <section className="section contact-section" id="contact">
         <div className="container"><p className="eyebrow gold">Contact</p><h2>Contact the project team.</h2><p className="section-lead">For contribution, volunteering and institutional support enquiries, contact Thane Odia Association.</p>
           <div className="contact-grid"><div><Landmark/><b>Project lead</b><span>Thane Odia Association</span></div><div><Mail/><b>Email</b><span>[Insert verified project email]</span></div><div><Phone/><b>Phone / WhatsApp</b><span>[Insert verified contact number]</span></div><div><Instagram/><b>Instagram</b><span>[Insert official project Instagram link]</span></div></div>
@@ -219,6 +188,13 @@ function App() {
     <footer className="footer"><div className="container"><img className="footer-temple" src="/assets/ornate-golden-heritage-temple.png" alt="" aria-hidden="true"/><b>THANE ODIA ASSOCIATION · KONARK CHAKRA PROJECT</b><span>PROJECT INFORMATION · CONTRIBUTIONS · UPDATES</span><img className="footer-temple" src="/assets/ornate-golden-heritage-temple.png" alt="" aria-hidden="true"/></div></footer>
     <a className="mobile-contribute" href="/donations">Contribute to the project <ArrowDown size={16}/></a>
   </>;
+}
+
+function App() {
+  const route = window.location.pathname.replace(/\/$/, '');
+  if (route === '/donations') return <DonationsApp />;
+  if (route === '/admin') return <AdminAccess />;
+  return <HomePage />;
 }
 
 export default App;
