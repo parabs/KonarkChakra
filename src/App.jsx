@@ -1,10 +1,7 @@
 import React, { useState } from 'react';
 import {
-  ArrowDown, ArrowRight, Menu, X, Heart, MapPin, Landmark, Users, Sun,
-  Hammer, Truck, HardHat, Flag, FileText, Pencil, ClipboardList, Cog,
-  Database, Wallet, ShieldCheck, Mail, Phone, Instagram, CheckCircle2
+  ArrowRight, Menu, X, MapPin, Users, Mail, Instagram
 } from 'lucide-react';
-import { createDonation, submitPaymentReference } from './lib/donations.js';
 import AdminAccess from './components/AdminAccess.jsx';
 import DonationsApp from './components/DonationsApp.jsx';
 
@@ -29,40 +26,6 @@ function SectionHeading({ eyebrow, title, children }) {
 // Homepage content follows the updated client HTML reference.
 function HomePage() {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [tier, setTier] = useState('Surya Patron');
-  const [amount, setAmount] = useState('25000');
-  const [donor, setDonor] = useState({ name: '', email: '', phone: '' });
-  const [donation, setDonation] = useState(null);
-  const [utr, setUtr] = useState('');
-  const [transferDate, setTransferDate] = useState('');
-  const [busy, setBusy] = useState(false);
-  const [notice, setNotice] = useState('');
-
-  const selectTier = (name, value) => {
-    setTier(name); setAmount(String(value));
-    document.getElementById('donation-form')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
-  };
-
-  const startDonation = async (event) => {
-    event.preventDefault(); setBusy(true); setNotice('');
-    try {
-      const result = await createDonation({ ...donor, amount: Number(amount), contributionLevel: tier });
-      setDonation(result);
-      setNotice('Your contribution reference has been created. Please complete the bank or UPI transfer and submit the payment reference below.');
-    } catch (error) { setNotice(error.message); }
-    finally { setBusy(false); }
-  };
-
-  const sendUtr = async (event) => {
-    event.preventDefault(); if (!donation?.donationId) return;
-    setBusy(true); setNotice('');
-    try {
-      await submitPaymentReference({ donationId: donation.donationId, utr, transferDate, amount: Number(amount) });
-      setNotice('Payment details submitted for verification. Once the contribution is confirmed, your receipt will be generated and sent to your email.');
-    } catch (error) { setNotice(error.message); }
-    finally { setBusy(false); }
-  };
-
   const closeMenu = () => setMenuOpen(false);
 
   return <>
@@ -200,7 +163,6 @@ function HomePage() {
       </section>
     </main>
     <footer className="footer"><div className="container"><b>THANE ODIA ASSOCIATION · KONARK CHAKRA PROJECT</b><span>HERITAGE · CRAFT · COMMUNITY</span><a href="/admin">Admin access</a></div></footer>
-    <a className="mobile-contribute" href="/donations">Contribute <ArrowDown size={16}/></a>
   </>;
 }
 
