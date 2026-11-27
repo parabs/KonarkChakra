@@ -27,6 +27,7 @@ function SectionHeading({ eyebrow, title, children }) {
   </div>;
 }
 
+// Homepage content follows the updated client HTML reference.
 function HomePage() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [tier, setTier] = useState('Surya Patron');
