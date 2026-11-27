@@ -553,3 +553,61 @@ html { scroll-padding-top: 90px; }
     height: 76px;
   }
 }
+
+
+/* Contribution invitation: editorial hierarchy with a warm heritage accent */
+.contribution-layout { align-items:stretch; }
+.contribution-layout .contribution-invitation {
+  position:relative;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:flex-start;
+  align-self:stretch;
+  min-height:100%;
+  padding:clamp(30px,3.2vw,48px);
+  overflow:hidden;
+  background:linear-gradient(135deg,#e8dfce 0%,#eee8dc 58%,#e4d7c1 100%);
+  border-left:3px solid var(--gold);
+}
+.contribution-invitation::after {
+  content:"";
+  position:absolute;
+  width:210px;
+  height:210px;
+  right:-92px;
+  top:-104px;
+  border:1px solid rgba(151,111,59,.22);
+  border-radius:50%;
+  box-shadow:0 0 0 18px rgba(151,111,59,.045),0 0 0 38px rgba(151,111,59,.035);
+  pointer-events:none;
+}
+.contribution-aside-eyebrow {
+  margin:0 0 18px !important;
+  color:var(--rust);
+  font:700 10px/1.4 var(--sans) !important;
+  letter-spacing:.2em;
+  text-transform:uppercase;
+}
+.contribution-invitation h3 {
+  position:relative;
+  z-index:1;
+  max-width:540px;
+  margin:0 0 22px;
+  color:#29251f;
+  font:600 clamp(32px,3.25vw,46px)/1.08 var(--serif);
+  letter-spacing:-.035em;
+}
+.contribution-invitation > p:not(.contribution-aside-eyebrow) {
+  position:relative;
+  z-index:1;
+  max-width:510px;
+  margin:0 0 26px;
+  color:#51483d;
+  font:400 15px/1.75 var(--sans);
+}
+.contribution-invitation .button { position:relative; z-index:1; }
+@media(max-width:720px) {
+  .contribution-layout .contribution-invitation { min-height:0; padding:26px 22px; }
+  .contribution-invitation h3 { font-size:clamp(30px,8vw,38px); }
+}
