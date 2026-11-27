@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { ArrowLeft, LogOut, RefreshCw, ShieldCheck, CheckCircle2, AlertCircle, Send } from 'lucide-react';
+import { ArrowLeft, LogOut, RefreshCw, ShieldCheck } from 'lucide-react';
 import { backendGet, backendPost } from '../lib/konarkBackend.js';
 
 export default function AdminAccess() {
@@ -41,18 +41,9 @@ export default function AdminAccess() {
       const result=await backendPost({action:'verifyDonation',confirmationCode:verifyPin.trim(),confirmedBy:volunteer.volunteerCode,volunteerName:volunteer.volunteerName});
       if(!result.success) throw new Error(result.error || 'Verification failed.');
       setVerifyPin('');
-      if (matched?.donationId) {
-        try { await backendPost({action:'send_receipt',donationId:matched.donationId}); setMessage('Contribution verified. Receipt request sent to the configured backend.'); }
-        catch { setMessage('Contribution verification submitted. Receipt request could not be confirmed; use the backend receipt workflow after checking the record.'); }
-      } else setMessage('Contribution verification submitted. Refresh the queue to confirm the updated status.');
+      setMessage(matched?.donationId ? `Contribution ${matched.donationId} verified. Receipt generation is held until Konark-specific receipt configuration is installed.` : 'Contribution verification submitted. Refresh the queue to confirm the updated status.');
       await loadQueue();
     } catch(e) { setError(e.message || 'Verification failed.'); }
-    finally { setActionBusy(''); }
-  };
-  const sendReceipt = async donationId => {
-    setActionBusy(donationId); setError(''); setMessage('');
-    try { const result=await backendPost({action:'send_receipt',donationId}); if(!result.success) throw new Error(result.error || 'Receipt request failed.'); setMessage('Receipt request submitted to the configured backend.'); }
-    catch(e) { setError(e.message || 'Receipt request failed.'); }
     finally { setActionBusy(''); }
   };
   const submitDirect = async e => {
@@ -76,7 +67,7 @@ export default function AdminAccess() {
       <div className="konark-admin-toolbar"><span>Pending contribution verification</span><button onClick={loadQueue} disabled={loading}><RefreshCw size={15}/>{loading?'Refreshing':'Refresh'}</button><button onClick={logout}><LogOut size={15}/>Sign out</button></div>
       <form className="konark-verify-form" onSubmit={verify}><label>6-digit contributor PIN<input required inputMode="numeric" maxLength={6} value={verifyPin} onChange={e=>setVerifyPin(e.target.value.replace(/\D/g,'').slice(0,6))} placeholder="Enter PIN shown by contributor"/></label><button className="konark-primary" disabled={actionBusy==='verify'}>{actionBusy==='verify'?'Verifying…':'Verify contribution'}</button></form>
       <div className="konark-queue">{queue.length===0?<p className="konark-empty">No pending contributions returned by the service.</p>:queue.map((item,i)=><article className="konark-queue-item" key={item.donationId || item.confirmationCode || i}><div><strong>{item.donorName || 'Contributor'}</strong><span>{item.donationId || 'Reference pending'} · {item.sevaHead || item.towards || 'Project contribution'}</span></div><b>₹{Number(item.amount || 0).toLocaleString('en-IN')}</b></article>)}</div>
-      <p className="konark-admin-note">Receipt requests are forwarded to the existing backend. The backend must confirm payment before issuing a receipt.</p>
+      <p className="konark-admin-note">Receipt generation is intentionally disabled while the temporary SJST backend is in use. Enable it only after Konark-specific receipt identity, sender, Drive folder and template settings are configured.</p>
     </>}
     {message&&<p className="konark-message" role="status">{message}</p>}{error&&<p className="konark-error" role="alert">{error}</p>}
     <p className="konark-admin-foot">Temporary backend connection · Konark identity and payment details are kept separate from SJST.</p></div>
