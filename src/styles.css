@@ -193,3 +193,11 @@
   .konark-tier-option{min-height:0;padding:18px}
   .konark-tier-option small{max-width:42ch}
 }
+
+@media(max-width:720px){
+  .nav-cta{display:inline-flex!important;padding:11px 13px;font-size:9px;white-space:nowrap}
+  .nav-actions{display:flex!important;margin-left:auto}
+  .nav{gap:10px}
+  .brand{max-width:52%;font-size:8px;letter-spacing:.08em}
+  .brand-seal{width:34px;height:34px;outline-offset:2px}
+}
