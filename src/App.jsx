@@ -9,7 +9,7 @@ import { createDonation, submitPaymentReference } from './lib/donations.js';
 const A = '/assets/';
 const nav = [
   ['Project', '#project'], ['The Chakra', '#monument'], ['Location', '#location'],
-  ['Journey & Updates', '#updates'], ['Support', '#sponsorship']
+  ['Updates', '#updates'], ['Support', '#sponsorship']
 ];
 
 function Image({ src, alt, className = '' }) {
@@ -72,7 +72,7 @@ function App() {
         <a className="nav-cta" href="#sponsorship"><Heart size={15}/> Contribute</a>
         <button className="menu-toggle" onClick={() => setMenuOpen(!menuOpen)} aria-label="Toggle navigation">{menuOpen ? <X/> : <Menu/>}</button>
       </div>
-      {menuOpen && <nav className="mobile-nav">{[...nav, ['Governance & Contact','#governance']].map(([label,href]) => <a key={href} href={href} onClick={closeMenu}>{label}</a>)}</nav>}
+      {menuOpen && <nav className="mobile-nav">{[...nav, ['Governance','#governance'],['Contact','#contact']].map(([label,href]) => <a key={href} href={href} onClick={closeMenu}>{label}</a>)}</nav>}
     </header>
 
     <main>
@@ -89,14 +89,14 @@ function App() {
         <div className="hero-facts"><div><Users/><span><b>Project lead</b>Thane Odia Association</span></div><div><MapPin/><span><b>Proposed location</b>Gaimukh, Thane · Subject to written approvals and final site arrangements</span></div></div>
       </section>
 
-      <section className="section project-community" id="project">
-
+      <section className="collective section" aria-labelledby="collective-title">
         <div className="container">
           <div className="collective-intro"><div><p className="eyebrow">Collective initiative</p><h2 id="collective-title">A project brought together by Thane’s Odia community.</h2></div><p>Led by Thane Odia Association, with the support and participation of Odia associations and community groups across Thane.</p></div>
           <div className="association-row"><div className="toa-card"><Image src="toa_logo.png" alt="Thane Odia Association logo"/><div><b>Lead organisation</b><span>Thane Odia Association</span></div></div><div className="community-note"><span className="community-mark">✳</span><div><b>One community. A shared endeavour.</b><span>Odia associations, community groups, families and volunteers across Thane</span></div></div></div>
         </div>
-      
+      </section>
 
+      <section className="section project-section" id="project">
         <div className="container">
           <SectionHeading eyebrow="The project" title="A stone monument inspired by Konark.">
             The project proposes a carved stone replica inspired by the wheel of the Konark Sun Temple, to be installed in a public space in Thane. Traditional stone artisans from Odisha are proposed to undertake the carving.
@@ -107,30 +107,27 @@ function App() {
             <article className="feature-card"><Image src="04_chakra_technical_drawing.png" alt="Technical drawing of a proposed Chakra monument"/><div className="feature-copy"><small>03 · THE DESIGN</small><h3>Design and installation</h3><p>Structural design, foundation details and installation method will be finalised with the relevant technical teams.</p></div></article>
           </div>
         </div>
-      
-</section>
+      </section>
 
-      <section className="section heritage-location" id="monument">
-
+      <section className="section heritage-section" id="monument">
         <div className="container heritage-grid">
           <div className="heritage-image"><Image src="05_konark_wheel_heritage_detail.png" alt="Detailed stone carving inspired by the Konark Sun Temple wheel"/></div>
           <div><p className="eyebrow">The Konark Sun Temple</p><h2>The wheel that represents time and movement.</h2><p className="body-large">The stone wheels of the Konark Sun Temple are recognised for their detailed carving and geometric design. The wheel is also associated with the passage of time and the movement of the sun.</p><p>The Thane project takes inspiration from this architectural element. It is a contemporary public monument proposal, not a reconstruction of the original temple.</p><blockquote>The project will use the wheel’s form and carving tradition to introduce visitors to an important part of Odisha’s architectural heritage.</blockquote><ul className="check-list"><li>Stone carving inspired by the Konark wheel</li><li>Interpretive information about its design and symbolism</li><li>Public access, subject to the final site plan and permissions</li></ul><p className="image-caption">Use a properly licensed reference photograph. Identify it as the original Konark wheel, not the proposed Thane monument.</p></div>
         </div>
-      
+      </section>
 
+      <section className="section location-section" id="location">
         <div className="container">
           <SectionHeading eyebrow="Proposed location · Thane" title="Gaimukh waterfront.">
             Gaimukh is the proposed location for the monument. Final site selection, layout, permissions and installation arrangements must be confirmed in writing by the relevant authorities.
           </SectionHeading>
-          <div className="location-grid" id="location"><figure><Image src="06_gaimukh_waterfront_overview.png" alt="Gaimukh waterfront overview"/><figcaption>Gaimukh overview</figcaption></figure><figure><Image src="07_proposed_site_area.png" alt="Proposed site area concept"/><figcaption>Proposed site area</figcaption></figure><figure><Image src="08_location_plan_concept.png" alt="Concept location plan"/><figcaption>Location plan</figcaption></figure></div>
+          <div className="location-grid"><figure><Image src="06_gaimukh_waterfront_overview.png" alt="Gaimukh waterfront overview"/><figcaption>Gaimukh overview</figcaption></figure><figure><Image src="07_proposed_site_area.png" alt="Proposed site area concept"/><figcaption>Proposed site area</figcaption></figure><figure><Image src="08_location_plan_concept.png" alt="Concept location plan"/><figcaption>Location plan</figcaption></figure></div>
           <p className="image-caption">Do not use general waterfront photographs as evidence of site approval. Label all concept visuals and proposed layouts clearly.</p>
           <div className="site-callout"><div><h3>Site planning requirements</h3><p>The layout must provide access around the monument, a suitable foundation and the sunlight exposure required if the sundial concept is pursued.</p></div><a className="button button-gold" href="#journey">View project stages <ArrowRight size={16}/></a></div>
         </div>
-      
-</section>
+      </section>
 
-      <section className="section journey-updates" id="updates">
-
+      <section className="section stages-section" id="journey">
         <div className="container">
           <SectionHeading eyebrow="Project stages" title="How the project will be delivered.">
             The work is organised into six stages. The status and date of each stage should be updated only when confirmed by the project team.
@@ -147,8 +144,9 @@ function App() {
           </div>
           <p className="disclaimer">This is the proposed execution sequence. It does not indicate that any stage has been completed.</p>
         </div>
-      
+      </section>
 
+      <section className="section updates-section" id="updates">
         <div className="container">
           <SectionHeading eyebrow="Project updates" title="Progress and records.">
             This section will carry dated project updates, approved drawings, site photographs, artisan and carving photographs, and installation records.
@@ -159,11 +157,9 @@ function App() {
             <article><Image src="06_gaimukh_waterfront_overview.png" alt="Thane site update visual"/><small>Thane site</small><h3>Site preparation and installation</h3><p>Add update date and verified status.</p></article>
           </div>
         </div>
-      
-</section>
+      </section>
 
-      <section className="section complete-support" id="sponsorship">
-
+      <section className="section sponsorship-section" id="sponsorship">
         <div className="container">
           <SectionHeading eyebrow="Contribute to the project" title="Contribution levels.">
             Individuals and families can support the project through the contribution levels below. Contributions of other amounts may also be accepted through the verified payment process.
@@ -184,8 +180,27 @@ function App() {
             <div className="institutional"><h3>Institutional support</h3><p>Organisations may contact the project team to discuss sponsorship or in-kind support such as stone, transport, equipment and professional services.</p><p>Any corporate or CSR support will be considered only after eligibility, documentation and applicable legal requirements are reviewed.</p><a className="text-link" href="#contact">Institutional enquiry <ArrowRight size={16}/></a></div>
           </div>
         </div>
-      
+      </section>
 
+      <section className="section governance-section" id="governance">
+        <div className="container">
+          <SectionHeading eyebrow="Project management" title="Roles and accountability.">
+            Thane Odia Association is the lead organisation. Project activities will be coordinated with participating associations, volunteers, technical specialists and the relevant authorities.
+          </SectionHeading>
+          <div className="governance-grid">
+            {[
+              ['governance_lead_organisation.png','Lead organisation','Thane Odia Association'],
+              ['governance_community_participation.png','Community participation','Odia associations and volunteers across Thane'],
+              ['governance_project_coordination.png','Project coordination','Project steering and execution teams'],
+              ['governance_government_coordination.png','Government coordination','Thane Municipal Corporation and relevant departments, subject to written approvals'],
+              ['governance_technical_work.png','Technical work','Stone artisans, engineers and appointed contractors'],
+              ['governance_financial_records.png','Financial records','Contributions and project expenditure to be recorded by the receiving organisation']
+            ].map(([img,title,desc])=><article className="governance-card" key={title}><Image src={img} alt=""/><h3>{title}</h3><p>{desc}</p></article>)}
+          </div>
+        </div>
+      </section>
+
+      <section className="section contribution-details" id="contribute">
         <div className="container contribution-layout">
           <div><p className="eyebrow">Contribution details</p><h2>Contributions are received by Thane Odia Association.</h2><p className="section-lead">Use only the bank or UPI details verified and published by Thane Odia Association. The details below are placeholders and must be completed before this page is made public.</p>
             <div className="bank-details">{[['Account name','Thane Odia Association'],['Bank name','[Insert verified bank name]'],['Account number','[Insert verified account number]'],['IFSC','[Insert verified IFSC]'],['Branch','[Insert verified branch]'],['UPI ID','[Insert verified UPI ID]']].map(([k,v])=><div key={k}><b>{k}</b><span>{v}</span></div>)}</div>
@@ -193,8 +208,9 @@ function App() {
           </div>
           <div className="qr-panel"><div className="qr-placeholder">Official payment QR<br/><small>Insert only after verification against the association’s account</small></div><p>Receipt and acknowledgement procedure: [Insert the association-approved process and contact.]</p></div>
         </div>
-      
+      </section>
 
+      <section className="section donation-section" id="donation-form">
         <div className="container donation-layout">
           <div><p className="eyebrow">Make a contribution</p><h2>Support the Konark Chakra Project.</h2><p className="section-lead">Choose a contribution level, share your details and continue with the verified bank or UPI payment instructions.</p>
             <form className="donation-form" onSubmit={startDonation}>
@@ -213,5 +229,17 @@ function App() {
             <p className="receipt-note"><ShieldCheck size={17}/> Receipts are generated only after the receiving organisation confirms the payment.</p>
           </div>
         </div>
-      
-</section>
+      </section>
+
+      <section className="section contact-section" id="contact">
+        <div className="container"><p className="eyebrow gold">Contact</p><h2>Contact the project team.</h2><p className="section-lead">For contribution, volunteering and institutional support enquiries, contact Thane Odia Association.</p>
+          <div className="contact-grid"><div><Landmark/><b>Project lead</b><span>Thane Odia Association</span></div><div><Mail/><b>Email</b><span>[Insert verified project email]</span></div><div><Phone/><b>Phone / WhatsApp</b><span>[Insert verified contact number]</span></div><div><Instagram/><b>Instagram</b><span>[Insert official project Instagram link]</span></div></div>
+        </div>
+      </section>
+    </main>
+    <footer className="footer"><div className="container"><img className="footer-temple" src="/assets/ornate-golden-heritage-temple.png" alt="" aria-hidden="true"/><b>THANE ODIA ASSOCIATION · KONARK CHAKRA PROJECT</b><span>PROJECT INFORMATION · CONTRIBUTIONS · UPDATES</span><img className="footer-temple" src="/assets/ornate-golden-heritage-temple.png" alt="" aria-hidden="true"/></div></footer>
+    <a className="mobile-contribute" href="#donation-form">Contribute to the project <ArrowDown size={16}/></a>
+  </>;
+}
+
+export default App;
