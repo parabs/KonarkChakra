@@ -63,6 +63,7 @@ export async function createContribution(data) {
     confirmedBy: '',
     confirmationCode: String(Math.floor(100000 + Math.random() * 900000)),
     sevaCategory: 'Konark Chakra Project',
+    contributionLevel: data.contributionLevel || 'Custom',
     sevaHead: data.purpose
   };
   const payload = {
@@ -76,6 +77,7 @@ export async function createContribution(data) {
     amount: donation.amount,
     paymentMode: donation.paymentMode,
     towards: donation.sevaHead,
+    contributionLevel: donation.contributionLevel,
     confirmationCode: donation.confirmationCode,
     paymentStatus: 'Pending',
     confirmedBy: '',
