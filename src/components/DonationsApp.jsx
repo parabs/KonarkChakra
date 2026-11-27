@@ -48,7 +48,7 @@ export default function DonationsApp() {
       </form> : <section className="konark-success">
         <div className="konark-success-icon"><CheckCircle2 size={30}/></div><p className="eyebrow">Reference created</p><h2>Thank you for supporting the project.</h2>
         <p>Your contribution request has been dispatched to the administration service. Please make the transfer only after receiving verified Konark payment instructions.</p>
-        <div className="konark-reference"><span>Contribution reference</span><strong>{record.donationId}</strong><span>Amount</span><strong>₹{money(record.amount)}</strong><span>Purpose</span><strong>{record.sevaHead}</strong></div>
+        <div className="konark-reference"><span>Contribution reference</span><strong>{record.donationId}</strong><span>Contribution level</span><strong>{record.contributionLevel || 'Custom'}</strong><span>Amount</span><strong>₹{money(record.amount)}</strong><span>Purpose</span><strong>{record.sevaHead}</strong></div>
         <div className="konark-pin"><span>Volunteer verification PIN</span><strong>{record.confirmationCode}</strong><button onClick={copy} type="button"><Copy size={15}/>{copied?'Copied':'Copy PIN'}</button></div>
         <p className="konark-form-foot">Share the PIN with an authorised project volunteer only after the payment has been made. A receipt is issued only after payment verification.</p>
         <a className="konark-back-home" href="/">Return to project website</a>
