@@ -83,6 +83,7 @@ export default function DonationsApp() {
         <p className="konark-form-foot">Share the PIN with an authorised project volunteer only after the payment has been made. A receipt is issued only after payment verification.</p>
         <a className="konark-back-home" href="/">Return to project website</a>
       </section>}
+      </>
       </div>
     </div>
     <footer className="konark-donation-footer">KONARK CHAKRA PROJECT · THANE ODIA ASSOCIATION</footer>
