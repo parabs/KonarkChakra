@@ -874,3 +874,27 @@ html { scroll-padding-top: 90px; }
   .konark-verify-form {grid-template-columns:1fr}
   .konark-queue-item {grid-template-columns:1fr auto;gap:8px}
 }
+
+
+/* Donation form-only composition: retain open space on the left and place
+   the complete contribution form on the right, as requested. */
+.konark-donation-shell-form-only {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+}
+.konark-donation-shell-form-only > .konark-donation-form,
+.konark-donation-shell-form-only > .konark-success {
+  width: min(100%, 850px);
+  margin-left: auto;
+}
+@media (max-width: 900px) {
+  .konark-donation-shell-form-only {
+    justify-content: center;
+  }
+  .konark-donation-shell-form-only > .konark-donation-form,
+  .konark-donation-shell-form-only > .konark-success {
+    width: 100%;
+    margin-left: 0;
+  }
+}
