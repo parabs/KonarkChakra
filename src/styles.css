@@ -317,3 +317,29 @@
     grid-template-columns: 100px minmax(0, 1fr);
   }
 }
+
+/* UX corrections: keep Admin access visible beside the single primary Contribute action. */
+.nav-actions{display:flex;align-items:center;gap:18px}
+.nav-admin-link{color:#e9d7b7;font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;white-space:nowrap}
+.nav-admin-link:hover,.konark-header-admin:hover{color:#e5bd70}
+.konark-donation-header{gap:16px}
+.konark-header-admin{font:700 10px Arial,sans-serif;letter-spacing:.1em;text-transform:uppercase;color:#75472f;white-space:nowrap}
+.konark-funding-info{width:min(100% - 40px,1180px);margin:38px auto 0;display:grid;grid-template-columns:1fr 1.05fr;gap:22px}
+.konark-funds-panel,.konark-sponsor-panel{padding:30px;background:repeating-linear-gradient(135deg,rgba(255,255,255,.018) 0 1px,transparent 1px 18px),linear-gradient(145deg,#241910,#17110d);border:1px solid #5c4932;color:#f5e8d0}
+.konark-funds-panel h2,.konark-sponsor-panel h2{font:500 clamp(23px,2.2vw,32px)/1.2 Georgia,serif;color:#e5bd70;margin:0 0 18px}
+.konark-funds-panel dl{margin:0 0 18px}
+.konark-funds-panel dl>div{display:flex;justify-content:space-between;gap:14px;padding:13px 0;border-bottom:1px solid rgba(201,155,81,.2)}
+.konark-funds-panel dt{font:16px Georgia,serif}
+.konark-funds-panel dd{margin:0;color:#d8ad63;font:12px Arial,sans-serif}
+.konark-funds-panel p,.konark-sponsor-panel p{font:15px/1.65 Georgia,serif;color:#ead8bf;margin:14px 0}
+.konark-sponsor-cta{display:inline-flex;margin-top:6px;padding:16px 24px;background:#c9a96d;color:#21180f;font:700 10px Arial,sans-serif;letter-spacing:.12em;text-transform:uppercase}
+@media(max-width:760px){.nav-actions{gap:10px}.nav-admin-link{font-size:9px}.nav-cta{display:inline-flex!important}.konark-funding-info{grid-template-columns:1fr;margin-top:22px}.konark-funds-panel,.konark-sponsor-panel{padding:22px}.konark-donation-header{padding:0 14px;gap:8px}.konark-header-admin{font-size:9px}}
+@media(max-width:430px){.konark-mini-brand{display:none}.konark-donation-header{justify-content:space-between}}
+/* Reference-matched governance cards: six responsibilities in a balanced 3 × 2 grid. */
+.governance-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:18px 20px;border:0}
+.governance-card{display:block;min-height:150px;padding:28px 30px;background:#f8f5ee;border:1px solid #d4c5aa}
+.governance-card small{display:block;color:#8d4a2b;font-size:10px;letter-spacing:.13em;text-transform:uppercase;margin-bottom:18px}
+.governance-card p{font:18px/1.45 var(--serif);color:#342a20;margin:0}
+@media(max-width:900px){.governance-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:600px){.governance-grid{grid-template-columns:1fr;gap:12px}.governance-card{min-height:0;padding:22px}}
+@media(min-width:901px){.updates-section>.container{grid-template-columns:minmax(250px,.78fr) minmax(0,2.22fr);gap:24px 34px}.updates-section .section-heading{grid-column:1;grid-row:1;min-width:0}.updates-section .updates-grid{grid-column:2;grid-row:1;min-width:0}.updates-section .section-heading h2{font-size:clamp(30px,3vw,43px);line-height:1.08;max-width:390px}.updates-section .section-lead{font-size:16px;line-height:1.62;max-width:360px}.updates-section .updates-grid article{grid-template-columns:minmax(76px,104px) minmax(0,1fr);column-gap:12px}.updates-section .updates-grid img{width:100%;height:104px;grid-row:1/4}.updates-section .updates-grid h3{font-size:clamp(15px,1.2vw,18px);line-height:1.25}.updates-section .updates-grid p{font-size:11px;line-height:1.5}}

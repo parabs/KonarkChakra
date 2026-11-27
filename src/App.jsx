@@ -8,7 +8,7 @@ import DonationsApp from './components/DonationsApp.jsx';
 const A = '/assets/';
 const nav = [
   ['Project', '#project'], ['The Chakra', '#monument'], ['Location', '#location'],
-  ['Why it matters', '#why-this-project'], ['Updates', '#updates'], ['FAQs', '#faq'], ['Support', '#contribute']
+  ['Why it matters', '#why-this-project'], ['Updates', '#updates'], ['FAQs', '#faq']
 ];
 
 function Image({ src, alt, className = '' }) {
@@ -35,7 +35,7 @@ function HomePage() {
           <span className="brand-seal">KCP</span><span>KONARK CHAKRA<br/>PROJECT · THANE</span>
         </a>
         <nav className="desktop-nav">{nav.map(([label, href]) => <a key={href} href={href}>{label}</a>)}</nav>
-        <div className="nav-actions"><a className="nav-cta" href="/donations">Contribute</a></div>
+        <div className="nav-actions"><a className="nav-admin-link" href="/admin">Admin</a><a className="nav-cta" href="/donations">Contribute</a></div>
         <button className="menu-toggle" onClick={() => setMenuOpen(!menuOpen)} aria-label="Toggle navigation">{menuOpen ? <X/> : <Menu/>}</button>
       </div>
       {menuOpen && <nav className="mobile-nav">{[...nav, ['Project stages','#journey'],['Governance','#governance'],['Contact','#contact'],['Admin access','/admin']].map(([label,href]) => <a key={href} href={href} onClick={closeMenu}>{label}</a>)}</nav>}
