@@ -498,3 +498,64 @@
   .site-callout { display: block; }
   .site-callout .button { margin-top: 16px; }
 }
+
+/* Project Updates — match the approved image-led reference layout.
+   Each update is a full-width image followed by its text, not a thumbnail row. */
+#updates .updates-section,
+#updates.updates-section { width: 100%; }
+#updates .updates-grid {
+  display: grid !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  gap: clamp(18px, 2vw, 30px) !important;
+  width: 100%;
+  margin-top: clamp(28px, 3vw, 42px);
+  align-items: start;
+}
+#updates .updates-grid article {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: stretch;
+  min-width: 0;
+  padding: 0 0 18px;
+  border-bottom: 1px solid var(--line);
+}
+#updates .updates-grid article > img {
+  display: block;
+  width: 100% !important;
+  height: clamp(230px, 19vw, 310px) !important;
+  min-height: 230px;
+  max-height: 310px;
+  object-fit: cover;
+  object-position: center;
+  margin: 0 0 18px !important;
+  flex: 0 0 auto;
+}
+#updates .updates-grid article > small {
+  display: block;
+  margin: 0 0 8px;
+  color: var(--rust);
+  font-size: 10px;
+  line-height: 1.4;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+}
+#updates .updates-grid article > h3 {
+  display: block;
+  margin: 0 0 8px;
+  font: 600 clamp(20px, 1.7vw, 26px)/1.2 var(--serif);
+}
+#updates .updates-grid article > p {
+  display: block;
+  margin: 0;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.6;
+}
+@media (max-width: 900px) {
+  #updates .updates-grid { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
+  #updates .updates-grid article > img { height: clamp(220px, 30vw, 280px) !important; }
+}
+@media (max-width: 600px) {
+  #updates .updates-grid { grid-template-columns: 1fr !important; }
+  #updates .updates-grid article > img { height: 250px !important; }
+}
