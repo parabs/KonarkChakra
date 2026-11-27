@@ -46,8 +46,7 @@ export default function DonationsApp() {
     <a className="konark-sponsor-cta" href="/#contact">Institutional enquiry</a>
   </article>
 </section>
-<div className="konark-donation-shell">
-      <section className="konark-donation-intro"><p className="eyebrow">Community contribution</p><h1>Support the Konark Chakra Project.</h1><p>Your contribution will support the proposed stone monument inspired by the Konark Sun Temple wheel. Contributions are recorded against the project and verified by an authorised volunteer.</p><div className="konark-trust-note"><ShieldCheck size={19}/><span>Contribution records are handled through the project’s temporary administration service. Only Konark project identity is displayed here.</span></div></section>
+<div className="konark-donation-shell konark-donation-shell-form-only">
       {!record ? <form className="konark-donation-form" onSubmit={submit}>
         <h2>Choose your contribution</h2>
         <div className="konark-tier-options" role="group" aria-label="Contribution level">
