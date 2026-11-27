@@ -237,7 +237,7 @@ function App() {
         </div>
       </section>
     </main>
-    <footer className="footer"><div className="container"><b>THANE ODIA ASSOCIATION · KONARK CHAKRA PROJECT</b><span>PROJECT INFORMATION · CONTRIBUTIONS · UPDATES</span></div></footer>
+    <footer className="footer"><div className="container"><img className="footer-temple" src="/assets/ornate-golden-heritage-temple.png" alt="" aria-hidden="true"/><b>THANE ODIA ASSOCIATION · KONARK CHAKRA PROJECT</b><span>PROJECT INFORMATION · CONTRIBUTIONS · UPDATES</span><img className="footer-temple" src="/assets/ornate-golden-heritage-temple.png" alt="" aria-hidden="true"/></div></footer>
     <a className="mobile-contribute" href="#donation-form">Contribute to the project <ArrowDown size={16}/></a>
   </>;
 }
