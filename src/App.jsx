@@ -122,7 +122,7 @@ function App() {
           <SectionHeading eyebrow="Proposed location · Thane" title="Gaimukh waterfront.">
             Gaimukh is the proposed location for the monument. Final site selection, layout, permissions and installation arrangements must be confirmed in writing by the relevant authorities.
           </SectionHeading>
-          <div className="location-grid"><figure><Image src="06_gaimukh_waterfront_overview.png" alt="Gaimukh waterfront overview"/><figcaption>Gaimukh overview</figcaption></figure><figure><Image src="07_proposed_site_area.png" alt="Proposed site area concept"/><figcaption>Proposed site area</figcaption></figure><figure><Image src="08_location_plan_concept.png" alt="Concept location plan"/><figcaption>Location plan</figcaption></figure></div>
+          <div className="location-grid" id="location"><figure><Image src="06_gaimukh_waterfront_overview.png" alt="Gaimukh waterfront overview"/><figcaption>Gaimukh overview</figcaption></figure><figure><Image src="07_proposed_site_area.png" alt="Proposed site area concept"/><figcaption>Proposed site area</figcaption></figure><figure><Image src="08_location_plan_concept.png" alt="Concept location plan"/><figcaption>Location plan</figcaption></figure></div>
           <p className="image-caption">Do not use general waterfront photographs as evidence of site approval. Label all concept visuals and proposed layouts clearly.</p>
           <div className="site-callout"><div><h3>Site planning requirements</h3><p>The layout must provide access around the monument, a suitable foundation and the sunlight exposure required if the sundial concept is pursued.</p></div><a className="button button-gold" href="#journey">View project stages <ArrowRight size={16}/></a></div>
         </div>
