@@ -26,8 +26,27 @@ export default function DonationsApp() {
   };
   const copy = async () => { try { await navigator.clipboard.writeText(record.confirmationCode); setCopied(true); } catch { setError('Unable to copy the confirmation PIN.'); } };
   return <main className="konark-donation-page">
-    <header className="konark-donation-header"><a href="/" className="konark-back"><ArrowLeft size={16}/> Project website</a><div className="konark-mini-brand">KONARK CHAKRA PROJECT <span>· THANE</span></div></header>
-    <div className="konark-donation-shell">
+    <header className="konark-donation-header"><a href="/" className="konark-back"><ArrowLeft size={16}/> Project website</a><div className="konark-mini-brand">KONARK CHAKRA PROJECT <span>· THANE</span></div><a className="konark-header-admin" href="/admin">Admin access</a></header>
+    <section className="konark-funding-info" aria-label="Project funding information">
+  <article className="konark-funds-panel">
+    <h2>Planned use of funds</h2>
+    <dl>
+      <div><dt>Stone procurement and carving</dt><dd>Odisha</dd></div>
+      <div><dt>Artisan charges</dt><dd>Carving</dd></div>
+      <div><dt>Transportation</dt><dd>Logistics</dd></div>
+      <div><dt>Foundation and civil works</dt><dd>Thane</dd></div>
+      <div><dt>Engineering and installation</dt><dd>Execution</dd></div>
+    </dl>
+    <p>Contributions support the essential elements of the project: stone, carving, artisan work, transportation, foundation, civil works and installation. Thane Odia Association maintains the project’s contribution and expenditure records.</p>
+  </article>
+  <article className="konark-sponsor-panel">
+    <h2>Corporate sponsorship and in-kind support</h2>
+    <p>Businesses and institutions can help shape this landmark through sponsorship or in-kind support—including stone, transportation, equipment and professional expertise.</p>
+    <p>Bring your organisation’s support to a lasting public heritage initiative through sponsorship, materials, logistics, equipment or professional expertise.</p>
+    <a className="konark-sponsor-cta" href="mailto:">Institutional enquiry</a>
+  </article>
+</section>
+<div className="konark-donation-shell">
       <section className="konark-donation-intro"><p className="eyebrow">Community contribution</p><h1>Support the Konark Chakra Project.</h1><p>Your contribution will support the proposed stone monument inspired by the Konark Sun Temple wheel. Contributions are recorded against the project and verified by an authorised volunteer.</p><div className="konark-trust-note"><ShieldCheck size={19}/><span>Contribution records are handled through the project’s temporary administration service. Only Konark project identity is displayed here.</span></div></section>
       {!record ? <form className="konark-donation-form" onSubmit={submit}>
         <h2>Choose your contribution</h2>
