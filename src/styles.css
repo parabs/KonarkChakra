@@ -201,3 +201,119 @@
   .brand{max-width:52%;font-size:8px;letter-spacing:.08em}
   .brand-seal{width:34px;height:34px;outline-offset:2px}
 }
+
+
+/* Project Updates: restore the client-reference two-column composition.
+   Keep the section heading in its own left column and the three update cards
+   aligned in the right column; collapse cleanly only on smaller screens. */
+@media (min-width: 901px) {
+  .updates-section > .container {
+    display: grid;
+    grid-template-columns: minmax(250px, .78fr) minmax(0, 2.22fr);
+    gap: 24px 34px;
+    align-items: start;
+  }
+  .updates-section .section-heading {
+    grid-column: 1;
+    grid-row: 1;
+    min-width: 0;
+    max-width: 100%;
+    position: static;
+  }
+  .updates-section .section-heading h2 {
+    max-width: 390px;
+    font-size: clamp(30px, 3vw, 43px);
+    line-height: 1.08;
+    overflow-wrap: normal;
+    word-break: normal;
+  }
+  .updates-section .section-lead {
+    max-width: 360px;
+    margin: 0;
+    font-size: 16px;
+    line-height: 1.62;
+  }
+  .updates-section .updates-grid {
+    grid-column: 2;
+    grid-row: 1;
+    min-width: 0;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
+    align-items: start;
+  }
+  .updates-section .updates-grid article {
+    min-width: 0;
+    display: grid;
+    grid-template-columns: minmax(76px, 104px) minmax(0, 1fr);
+    grid-template-rows: auto auto 1fr;
+    column-gap: 12px;
+    align-content: start;
+    padding-bottom: 12px;
+  }
+  .updates-section .updates-grid img {
+    grid-column: 1;
+    grid-row: 1 / 4;
+    width: 100%;
+    height: 104px;
+    object-fit: cover;
+  }
+  .updates-section .updates-grid small,
+  .updates-section .updates-grid h3,
+  .updates-section .updates-grid p {
+    grid-column: 2;
+    min-width: 0;
+  }
+  .updates-section .updates-grid h3 {
+    font-size: clamp(15px, 1.2vw, 18px);
+    line-height: 1.25;
+    overflow-wrap: break-word;
+  }
+  .updates-section .updates-grid p {
+    font-size: 11px;
+    line-height: 1.5;
+  }
+}
+@media (min-width: 721px) and (max-width: 900px) {
+  .updates-section > .container {
+    display: block;
+  }
+  .updates-section .section-heading {
+    max-width: 620px;
+    margin-bottom: 24px;
+  }
+  .updates-section .section-heading h2 {
+    max-width: 600px;
+    font-size: clamp(30px, 4vw, 40px);
+    line-height: 1.1;
+  }
+  .updates-section .section-lead {
+    max-width: 650px;
+    margin: 0;
+  }
+  .updates-section .updates-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+  }
+}
+@media (max-width: 720px) {
+  .updates-section .section-heading {
+    margin-bottom: 22px;
+  }
+  .updates-section .section-heading h2 {
+    font-size: 32px;
+    line-height: 1.12;
+  }
+  .updates-section .section-lead {
+    margin: 0;
+  }
+  .updates-section .updates-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+  .updates-section .updates-grid article {
+    grid-template-columns: 100px minmax(0, 1fr);
+  }
+}
