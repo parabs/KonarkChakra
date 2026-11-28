@@ -49,7 +49,7 @@ export default function DonationsApp() {
           <div className="konark-form-row"><label>Email address<input required type="email" autoComplete="email" value={form.email} onChange={e=>update('email',e.target.value)} placeholder="name@example.com"/></label><label>Mobile number<input required type="tel" autoComplete="tel" value={form.mobile} onChange={e=>update('mobile',e.target.value)} placeholder="+91"/></label></div>
           <label>Contribution towards<select value={form.purpose} onChange={e=>update('purpose',e.target.value)}>{purposes.map(p=><option key={p}>{p}</option>)}</select></label>
           <label>Contribution amount (₹)<input required min="1" max="10000000" type="number" inputMode="numeric" value={form.amount} onChange={e=>update('amount',e.target.value)} placeholder="Enter amount"/><small className="konark-amount-hint">{form.contributionLevel==='Custom'?'Enter the amount you wish to contribute.':`${form.contributionLevel} selected. You can change the amount if needed.`}</small></label>
-          <p className="konark-payment-warning">Bank account and UPI payment details are not displayed yet. Please obtain the verified Konark Chakra Project payment instructions from the project team before transferring funds. SJST bank or UPI details are never used on this page.</p>
+          <p className="konark-payment-warning">Bank account and UPI payment details are not displayed on this page. Please obtain verified Konark Chakra Project payment instructions from the project team before transferring funds.</p>
           {error && <p className="konark-error" role="alert">{error}</p>}
           <button className="konark-primary" disabled={busy}>{busy?'Submitting…':'Create contribution reference'}</button>
           <p className="konark-form-foot">Submitting this form records a contribution request; it does not confirm receipt of funds or issue a donation receipt.</p>
@@ -81,7 +81,7 @@ export default function DonationsApp() {
         <h2>Corporate sponsorship and in-kind support</h2>
         <p>Businesses and institutions can help shape this landmark through sponsorship or in-kind support—including stone, transportation, equipment and professional expertise.</p>
         <p>Bring your organisation’s support to a lasting public heritage initiative through sponsorship, materials, logistics, equipment or professional expertise.</p>
-        <a className="konark-sponsor-cta" href="./#contact">Institutional enquiry</a>
+        <a className="konark-sponsor-cta" href={`${import.meta.env.BASE_URL}#contact`}>Contact the project team</a>
       </article>
     </section>
       </div>
