@@ -1894,3 +1894,17 @@ html { scroll-padding-top: 90px; }
     font-size: 11px;
   }
 }
+
+
+/* Client-reference contribution tiers within the homepage sponsorship section */
+.client-contribution-tiers{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin:26px 0 18px}
+.client-contribution-tier{border:1px solid rgba(196,166,111,.55);background:rgba(255,255,255,.035);padding:24px;min-width:0}
+.client-contribution-tier small{display:block;color:#c5a66b;text-transform:uppercase;letter-spacing:.12em;font-size:11px;font-weight:700;margin-bottom:12px}
+.client-contribution-tier h3{font-size:20px;margin:0 0 18px}
+.client-tier-amount{font-size:38px;line-height:1.1;color:#d7b66e;margin-bottom:16px}
+.client-contribution-tier p{font-size:14px;line-height:1.5;margin:0}
+.client-any-amount{display:flex;align-items:center;justify-content:space-between;gap:24px;border:1px solid rgba(196,166,111,.45);padding:18px 22px;margin-bottom:22px}
+.client-any-amount strong,.client-any-amount span{display:block}
+.client-any-amount strong{margin-bottom:5px;color:#e0bd72}
+.client-any-amount span{font-size:13px;line-height:1.45}
+@media(max-width:760px){.client-contribution-tiers{grid-template-columns:1fr}.client-contribution-tier{padding:20px}.client-any-amount{align-items:flex-start;flex-direction:column}}
