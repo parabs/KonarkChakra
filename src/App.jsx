@@ -72,9 +72,9 @@ function HomePage() {
             Inspired by one of India’s most celebrated architectural masterpieces, the Konark Chakra brings the form and symbolism of the Sun Temple wheel into the heart of Thane. The six-foot design reference honours Odisha’s stone-carving tradition and its extraordinary artisans.
           </SectionHeading>
           <div className="feature-grid">
-            <article className="feature-card"><Image src="02_stone_chakra_monument.png" alt="Concept render of the proposed stone Chakra monument"/><div className="feature-copy"><small>01 · THE MONUMENT</small><h3>Stone Chakra</h3><p>A six-foot stone wheel draws its form from the celebrated Konark Sun Temple and its timeless artistry.</p></div></article>
-            <article className="feature-card"><Image src="03_traditional_stone_carving_artisan.png" alt="Traditional stone artisan carving a wheel detail"/><div className="feature-copy"><small>02 · THE CRAFT</small><h3>Traditional stone carving</h3><p>At its heart is the skill of Odisha’s traditional stone artisans, whose craft has shaped the region’s enduring architectural legacy.</p></div></article>
-            <article className="feature-card"><Image src="04_chakra_technical_drawing.png" alt="Technical drawing of a proposed Chakra monument"/><div className="feature-copy"><small>03 · THE DESIGN</small><h3>Design and installation</h3><p>The wheel, its pedestal and foundation are conceived as one harmonious monument, balancing sculptural presence, structural integrity and public access.</p></div></article>
+            <article className="feature-card"><Image src="02_stone_chakra_monument.png" alt="Concept render of the proposed stone Chakra monument"/><div className="feature-copy"><h3>The Konark Chakra</h3><p>A six-foot design reference inspired by the celebrated wheel of the Konark Sun Temple.</p><small>01 · THE MONUMENT</small><h3>Stone Chakra</h3><p>A six-foot stone wheel draws its form from the celebrated Konark Sun Temple and its timeless artistry.</p></div></article>
+            <article className="feature-card"><Image src="03_traditional_stone_carving_artisan.png" alt="Traditional stone artisan carving a wheel detail"/><div className="feature-copy"><h3>The Art of Stone Carving</h3><p>A tribute to Odisha’s traditional stone-carving heritage.</p><small>02 · THE CRAFT</small><h3>Traditional stone carving</h3><p>At its heart is the skill of Odisha’s traditional stone artisans, whose craft has shaped the region’s enduring architectural legacy.</p></div></article>
+            <article className="feature-card"><Image src="04_chakra_technical_drawing.png" alt="Technical drawing of a proposed Chakra monument"/><div className="feature-copy"><h3>Design and Engineering</h3><p>Careful planning for the monument, its foundation and installation.</p><small>03 · THE DESIGN</small><h3>Design and installation</h3><p>The wheel, its pedestal and foundation are conceived as one harmonious monument, balancing sculptural presence, structural integrity and public access.</p></div></article>
           </div>
         </div>
       </section>
@@ -91,28 +91,19 @@ function HomePage() {
             <ul className="check-list"><li>Stone carving inspired by the Konark wheel</li><li>Interpretive information about its design and symbolism</li><li>A welcoming public setting, designed around access and visibility</li></ul>
           </div>
           <figure className="heritage-image">
+            <h3>The Original Konark Wheel</h3>
+            <p>The architectural inspiration behind the Thane monument.</p>
             <Image src="05_konark_wheel_heritage_detail.png" alt="Original Konark Sun Temple wheel detail, the architectural inspiration for the Thane monument"/>
             <figcaption className="image-caption">The original Konark wheel is shown here as the architectural inspiration for the Thane monument.</figcaption>
           </figure>
-        </div>
-      </section>
-
-      <section className="section sundial-section" id="sundial">
-        <div className="container sundial-panel">
           <div className="sundial-copy">
             <p className="eyebrow">The Konark wheel as a sundial</p>
             <h2>The Konark wheel as a sundial.</h2>
             <p className="sundial-intro">The Konark wheel is widely interpreted as a sundial—a meeting point of art, astronomy and timekeeping. The Thane project seeks to bring this idea to life by exploring how sunlight and moving shadows can reveal the passage of time.</p>
             <p className="sundial-detail">The Konark wheel is widely interpreted as a sundial. The sundial study focuses on three essentials: the wheel’s orientation, the changing path of sunlight through the seasons, and a reliable method of reading time from its shadows. The monument will be described as a working sundial only after its time-reading accuracy has been demonstrated at the site.</p>
             <p className="sundial-note">A timeless idea expressed through sunlight, shadow and the geometry of the wheel.</p>
-          </div>
-          <div className="sundial-visual">
-            <Image src="05_konark_wheel_heritage_detail.png" alt="Konark wheel detail with sunlight and shadow illustrating the sundial concept"/>
-            <div className="sundial-principles">
-              <article><span className="sundial-symbol">☼</span><div><h3>Sunlight</h3><p>Uses the Sun’s natural movement across the sky.</p></div></article>
-              <article><span className="sundial-symbol">◷</span><div><h3>Shadows</h3><p>The wheel’s spokes cast changing shadows through the day.</p></div></article>
-              <article><span className="sundial-symbol">◫</span><div><h3>Timekeeping</h3><p>A study of wheel orientation and seasonal sunlight to read time.</p></div></article>
-            </div>
+            <h3>Sunlight, Shadow and Time</h3>
+            <p>An exploration of the Konark wheel’s association with traditional timekeeping.</p>
           </div>
         </div>
       </section>
@@ -170,15 +161,15 @@ function HomePage() {
           <div className="updates-grid">
             <article className="update-card update-card-design">
               <div className="update-image-wrap"><Image src="Chalk Wheel Design on Granite.png" alt="Chalk layout of the Konark wheel drawn on a granite slab" className="update-image"/></div>
-              <div className="update-copy"><small>01 / DESIGN</small><h3>Design and engineering</h3><p>The design story behind the monument and its setting.</p></div>
+              <div className="update-copy"><h3>Design and Engineering</h3><p>The monument’s design journey.</p><small>Design</small><h3>Design and engineering</h3><p>The design story behind the monument and its setting.</p></div>
             </article>
             <article className="update-card update-card-craft">
               <div className="update-image-wrap"><Image src="Sunlit Quarry with Excavator and Stone Blocks.png" alt="Stone quarry with cut blocks prepared for the monument" className="update-image"/></div>
-              <div className="update-copy"><small>02 / CRAFTSMANSHIP</small><h3>Stone carving in Odisha</h3><p>A celebration of the artisans and the craft tradition.</p></div>
+              <div className="update-copy"><h3>Craftsmanship in Odisha</h3><p>The people and skills behind traditional stone carving.</p><small>Craftsmanship</small><h3>Stone carving in Odisha</h3><p>A celebration of the artisans and the craft tradition.</p></div>
             </article>
             <article className="update-card update-card-site">
               <div className="update-image-wrap"><Image src="Ornate Stone Beam Crane Lift.png" alt="Carved stone beam being lifted by a crane during monument installation" className="update-image"/></div>
-              <div className="update-copy"><small>03 / THANE SITE</small><h3>Site preparation and installation</h3><p>The journey towards creating a public heritage space at Gaimukh.</p></div>
+              <div className="update-copy"><h3>Gaimukh, Thane</h3><p>The proposed setting for the Konark Chakra.</p><small>Thane site</small><h3>Site preparation and installation</h3><p>The journey towards creating a public heritage space at Gaimukh.</p></div>
             </article>
           </div>
         </div>
