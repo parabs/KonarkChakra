@@ -86,7 +86,6 @@ export default function DonationsApp() {
     </section>
       </div>
     </div>
-        KONARK CHAKRA PROJECT · THANE ODIA ASSOCIATION
-      </footer>
+    <footer className="konark-donation-footer">KONARK CHAKRA PROJECT · THANE ODIA ASSOCIATION</footer>
   </main>;
 }
