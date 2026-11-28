@@ -76,23 +76,56 @@ function HomePage() {
       </section>
 
       <section className="section heritage-section" id="monument">
-        <div className="container">
-          <div className="heritage-content">
-            <div className="heritage-copy">
-              <p className="eyebrow">The Konark Sun Temple</p>
-              <h2>The wheel that represents time and movement.</h2>
-              <p className="heritage-lead">The stone wheels of the Konark Sun Temple are masterpieces of geometry and intricate carving. Their form is closely associated with the passage of time and the ancient practice of reading the sun’s movement through shadows.</p>
-              <p>The Thane monument draws inspiration from this remarkable legacy. It is a contemporary tribute to the Konark wheel—created to share its beauty, symbolism and craftsmanship with a new generation. Through its form and interpretive displays, the monument invites visitors to discover the Konark wheel’s symbolism, the art of stone carving and the architectural brilliance of Odisha.</p>
-              <blockquote>The project will use the wheel’s form and carving tradition to introduce visitors to an important part of Odisha’s architectural heritage.</blockquote>
-              <ul className="check-list"><li>Stone carving inspired by the Konark wheel</li><li>Interpretive information about its design and symbolism</li><li>Public access, subject to the final site plan and permissions</li></ul>
-              <p className="image-caption">Use a properly licensed reference photograph. Identify it as the original Konark wheel, not the proposed Thane monument.</p>
+        <div className="container heritage-layout">
+          <div className="heritage-copy">
+            <p className="eyebrow">The Konark Sun Temple</p>
+            <h2>The wheel that represents time and movement.</h2>
+            <p className="heritage-lead">The stone wheels of the Konark Sun Temple are masterpieces of geometry and intricate carving. Their form is closely associated with the passage of time and the ancient practice of reading the sun’s movement through shadows.</p>
+            <p>The Thane monument draws inspiration from this remarkable legacy. It is a contemporary tribute to the Konark wheel—created to share its beauty, symbolism and craftsmanship with a new generation.</p>
+            <blockquote>Through its form and interpretive displays, the monument invites visitors to discover the Konark wheel’s symbolism, the art of stone carving and the architectural brilliance of Odisha.</blockquote>
+            <ul className="check-list"><li>Stone carving inspired by the Konark wheel</li><li>Interpretive information about its design and symbolism</li><li>A welcoming public setting, designed around access and visibility</li></ul>
+          </div>
+          <figure className="heritage-image">
+            <Image src="05_konark_wheel_heritage_detail.png" alt="Original Konark Sun Temple wheel detail, the architectural inspiration for the Thane monument"/>
+            <figcaption className="image-caption">The original Konark wheel is shown here as the architectural inspiration for the Thane monument.</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section className="section sundial-section" id="sundial">
+        <div className="container sundial-panel">
+          <div className="sundial-copy">
+            <p className="eyebrow">The Konark wheel as a sundial</p>
+            <h2>The Konark wheel as a sundial.</h2>
+            <p className="sundial-intro">The Konark wheel is widely interpreted as a sundial—a meeting point of art, astronomy and timekeeping. The Thane project seeks to bring this idea to life by exploring how sunlight and moving shadows can reveal the passage of time.</p>
+            <p className="sundial-detail">The Konark wheel is widely interpreted as a sundial. The sundial study focuses on three essentials: the wheel’s orientation, the changing path of sunlight through the seasons, and a reliable method of reading time from its shadows. The monument will be described as a working sundial only after its time-reading accuracy has been demonstrated at the site.</p>
+            <p className="sundial-note">A timeless idea expressed through sunlight, shadow and the geometry of the wheel.</p>
+          </div>
+          <div className="sundial-visual">
+            <Image src="05_konark_wheel_heritage_detail.png" alt="Konark wheel detail with sunlight and shadow illustrating the sundial concept"/>
+            <div className="sundial-principles">
+              <article><span className="sundial-symbol">☼</span><div><h3>Sunlight</h3><p>Uses the Sun’s natural movement across the sky.</p></div></article>
+              <article><span className="sundial-symbol">◷</span><div><h3>Shadows</h3><p>The wheel’s spokes cast changing shadows through the day.</p></div></article>
+              <article><span className="sundial-symbol">◫</span><div><h3>Timekeeping</h3><p>A study of wheel orientation and seasonal sunlight to read time.</p></div></article>
             </div>
-            <div className="heritage-image"><Image src="05_konark_wheel_heritage_detail.png" alt="Detailed stone carving inspired by the Konark Sun Temple wheel"/></div>
           </div>
         </div>
       </section>
 
-      <section className="section why-section" id="why-this-project"><div className="container"><SectionHeading eyebrow="Why this project matters" title="Odisha’s Konark legacy, brought into Thane’s public life.">The Konark Chakra is envisioned as more than a monument. It is a place where heritage meets the everyday life of the city—inviting families, students and visitors to experience Odisha’s architecture, discover traditional craftsmanship and explore the science of sunlight and time.</SectionHeading><div className="feature-grid"><article className="feature-card"><div className="feature-copy"><small>01 · HERITAGE</small><h3>Celebrate Odisha’s architecture</h3><p>Bring the design language of the Konark Sun Temple and its celebrated stone wheels into a contemporary public setting in Thane.</p></div></article><article className="feature-card"><div className="feature-copy"><small>02 · CRAFT</small><h3>Showcase traditional stone carving</h3><p>Showcase the skill of Odisha’s stone artisans through traditional carving techniques applied to the Konark-inspired wheel.</p></div></article><article className="feature-card"><div className="feature-copy"><small>03 · LEARNING</small><h3>Connect visitors with science</h3><p>Interpretive panels explain the Konark wheel, the movement of sunlight and shadows, and the principles of sundial timekeeping.</p></div></article></div></div></section>
+      <section className="section why-section" id="why-this-project">
+        <div className="container">
+          <div className="why-intro">
+            <p className="eyebrow">Why this project matters</p>
+            <h2>Odisha’s Konark legacy, brought into Thane’s public life.</h2>
+            <p className="why-lead">The Konark Chakra is envisioned as more than a monument. It is a place where heritage meets the everyday life of the city—inviting families, students and visitors to experience Odisha’s architecture, discover traditional craftsmanship and explore the science of sunlight and time.</p>
+          </div>
+          <div className="why-grid">
+            <article className="why-card"><small>01 · HERITAGE</small><h3>Celebrate Odisha’s architecture</h3><p>Bring the design language of the Konark Sun Temple and its celebrated stone wheels into a contemporary public setting in Thane.</p></article>
+            <article className="why-card"><small>02 · CRAFT</small><h3>Showcase traditional stone carving</h3><p>Showcase the skill of Odisha’s stone artisans through traditional carving techniques applied to the Konark-inspired wheel.</p></article>
+            <article className="why-card"><small>03 · LEARNING</small><h3>Connect visitors with science</h3><p>Interpretive panels explain the Konark wheel, the movement of sunlight and shadows, and the principles of sundial timekeeping.</p></article>
+          </div>
+        </div>
+      </section>
 
       <section className="section location-section" id="location">
         <div className="container">
