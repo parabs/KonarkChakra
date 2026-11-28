@@ -164,9 +164,18 @@ function HomePage() {
             Follow the making of the Konark Chakra: from design and stone selection to the artisans’ work in Odisha and the monument’s arrival in Thane.
           </SectionHeading>
           <div className="updates-grid">
-            <article><Image src="04_chakra_technical_drawing.png" alt="Design update visual"/><small>Design</small><h3>Design and engineering</h3><p>The design story behind the monument and its setting.</p></article>
-            <article><Image src="03_traditional_stone_carving_artisan.png" alt="Artisan workshop update visual"/><small>Craftsmanship</small><h3>Stone carving in Odisha</h3><p>A celebration of the artisans and the craft tradition.</p></article>
-            <article><Image src="06_gaimukh_waterfront_overview.png" alt="Thane site update visual"/><small>Thane site</small><h3>Site preparation and installation</h3><p>The journey towards creating a public heritage space at Gaimukh.</p></article>
+            <article className="update-card update-card-design">
+              <div className="update-image-wrap"><Image src="Chalk Wheel Design on Granite.png" alt="Chalk layout of the Konark wheel drawn on a granite slab" className="update-image"/></div>
+              <div className="update-copy"><small>01 / DESIGN</small><h3>Design and engineering</h3><p>The design story behind the monument and its setting.</p></div>
+            </article>
+            <article className="update-card update-card-craft">
+              <div className="update-image-wrap"><Image src="Sunlit Quarry with Excavator and Stone Blocks.png" alt="Stone quarry with cut blocks prepared for the monument" className="update-image"/></div>
+              <div className="update-copy"><small>02 / CRAFTSMANSHIP</small><h3>Stone carving in Odisha</h3><p>A celebration of the artisans and the craft tradition.</p></div>
+            </article>
+            <article className="update-card update-card-site">
+              <div className="update-image-wrap"><Image src="Ornate Stone Beam Crane Lift.png" alt="Carved stone beam being lifted by a crane during monument installation" className="update-image"/></div>
+              <div className="update-copy"><small>03 / THANE SITE</small><h3>Site preparation and installation</h3><p>The journey towards creating a public heritage space at Gaimukh.</p></div>
+            </article>
           </div>
         </div>
       </section>
