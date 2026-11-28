@@ -149,7 +149,6 @@ function HomePage() {
               ['stage_06_handover.png','06 · HANDOVER','Carry out final inspections, install visitor information and formally document the monument’s handover.']
             ].map(([img,title,desc])=><article className="stage-card" key={title}><Image src={img} alt=""/><b>{title}</b><p>{desc}</p></article>)}
           </div>
-          <p className="disclaimer">This is the proposed execution sequence. It does not indicate that any stage has been completed.</p>
         </div>
       </section>
 
