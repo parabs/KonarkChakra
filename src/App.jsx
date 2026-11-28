@@ -35,7 +35,7 @@ function HomePage() {
           <span className="brand-seal">KCP</span><span>KONARK CHAKRA<br/>PROJECT · THANE</span>
         </a>
         <nav className="desktop-nav">{nav.map(([label, href]) => <a key={href} href={href}>{label}</a>)}</nav>
-        <div className="nav-actions"><a className="nav-admin-link" href="/admin">Admin</a><a className="nav-cta" href="/donations">Contribute</a></div>
+        <div className="nav-actions"><a className="nav-admin-link" href="?page=admin">Admin</a><a className="nav-cta" href="?page=donations">Contribute</a></div>
         <button className="menu-toggle" onClick={() => setMenuOpen(!menuOpen)} aria-label="Toggle navigation">{menuOpen ? <X/> : <Menu/>}</button>
       </div>
       {menuOpen && <nav className="mobile-nav">{[...nav, ['Project stages','#journey'],['Governance','#governance'],['Contact','#contact'],['Admin access','/admin']].map(([label,href]) => <a key={href} href={href} onClick={closeMenu}>{label}</a>)}</nav>}
@@ -198,7 +198,7 @@ function HomePage() {
         </div>
       </section>
 
-      <section className="section contribution-details" id="contribute"><div className="container contribution-layout"><div><p className="eyebrow">Support the project</p><h2>Be part of the Konark Chakra legacy.</h2><p className="section-lead">Thane Odia Association is the receiving organisation for contributions to the Konark Chakra Project. To participate, contact the association through its official communication channels for contribution instructions.</p><p className="security-note">For your security, make transfers only to an account held in the name of Thane Odia Association.</p></div><div className="contribution-invitation"><p className="contribution-aside-eyebrow">A legacy we build together</p><h3>Every contribution helps turn a shared vision into a lasting landmark.</h3><p>Your support helps celebrate Odisha’s architectural heritage, honour its traditional artisans and create a place of pride for the people of Thane.</p><a className="button button-rust" href="/donations">Contribute to the project <ArrowRight size={16}/></a></div></div></section>
+      <section className="section contribution-details" id="contribute"><div className="container contribution-layout"><div><p className="eyebrow">Support the project</p><h2>Be part of the Konark Chakra legacy.</h2><p className="section-lead">Thane Odia Association is the receiving organisation for contributions to the Konark Chakra Project. To participate, contact the association through its official communication channels for contribution instructions.</p><p className="security-note">For your security, make transfers only to an account held in the name of Thane Odia Association.</p></div><div className="contribution-invitation"><p className="contribution-aside-eyebrow">A legacy we build together</p><h3>Every contribution helps turn a shared vision into a lasting landmark.</h3><p>Your support helps celebrate Odisha’s architectural heritage, honour its traditional artisans and create a place of pride for the people of Thane.</p><a className="button button-rust" href="?page=donations">Contribute to the project <ArrowRight size={16}/></a></div></div></section>
 
       <section className="section governance-section" id="governance">
         <div className="container">
@@ -231,14 +231,14 @@ function HomePage() {
         </div>
       </section>
     </main>
-    <footer className="footer"><div className="container"><b>THANE ODIA ASSOCIATION · KONARK CHAKRA PROJECT</b><span>HERITAGE · CRAFT · COMMUNITY</span><a href="/admin">Admin access</a></div></footer>
+    <footer className="footer"><div className="container"><b>THANE ODIA ASSOCIATION · KONARK CHAKRA PROJECT</b><span>HERITAGE · CRAFT · COMMUNITY</span><a href="?page=admin">Admin access</a></div></footer>
   </>;
 }
 
 function App() {
-  const route = window.location.pathname.replace(/\/$/, '');
-  if (route === '/donations') return <DonationsApp />;
-  if (route === '/admin') return <AdminAccess />;
+  const page = new URLSearchParams(window.location.search).get('page');
+  if (page === 'donations') return <DonationsApp />;
+  if (page === 'admin') return <AdminAccess />;
   return <HomePage />;
 }
 
