@@ -200,6 +200,30 @@ function HomePage() {
 
       <section className="section contribution-details" id="contribute"><div className="container contribution-layout"><div><p className="eyebrow">Support the project</p><h2>Be part of the Konark Chakra legacy.</h2><p className="section-lead">Thane Odia Association is the receiving organisation for contributions to the Konark Chakra Project. To participate, contact the association through its official communication channels for contribution instructions.</p><p className="security-note">For your security, make transfers only to an account held in the name of Thane Odia Association.</p></div><div className="contribution-invitation"><p className="contribution-aside-eyebrow">A legacy we build together</p><h3>Every contribution helps turn a shared vision into a lasting landmark.</h3><p>Your support helps celebrate Odisha’s architectural heritage, honour its traditional artisans and create a place of pride for the people of Thane.</p><a className="button button-rust" href="?page=donations">Contribute to the project <ArrowRight size={16}/></a></div></div></section>
 
+      <section className="section home-funding-section" aria-label="Project funding and sponsorship">
+        <div className="container">
+          <div className="konark-funding-info">
+            <article className="konark-funds-panel">
+              <h2>Planned use of funds</h2>
+              <dl>
+                <div><dt>Stone procurement and carving</dt><dd>Odisha</dd></div>
+                <div><dt>Artisan charges</dt><dd>Carving</dd></div>
+                <div><dt>Transportation</dt><dd>Logistics</dd></div>
+                <div><dt>Foundation and civil works</dt><dd>Thane</dd></div>
+                <div><dt>Engineering and installation</dt><dd>Execution</dd></div>
+              </dl>
+              <p>Contributions support the essential elements of the project: stone, carving, artisan work, transportation, foundation, civil works and installation. Thane Odia Association maintains the project’s contribution and expenditure records.</p>
+            </article>
+            <article className="konark-sponsor-panel">
+              <h2>Corporate sponsorship and in-kind support</h2>
+              <p>Businesses and institutions can help shape this landmark through sponsorship or in-kind support—including stone, transportation, equipment and professional expertise.</p>
+              <p>Bring your organisation’s support to a lasting public heritage initiative through sponsorship, materials, logistics, equipment or professional expertise.</p>
+              <a className="konark-sponsor-cta" href="#contact">Institutional enquiry</a>
+            </article>
+          </div>
+        </div>
+      </section>
+
       <section className="section governance-section" id="governance">
         <div className="container">
           <SectionHeading eyebrow="Project management" title="Project leadership, responsibilities and financial oversight.">
