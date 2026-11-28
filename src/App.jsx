@@ -131,11 +131,11 @@ function HomePage() {
       <section className="section location-section" id="location">
         <div className="container">
           <SectionHeading eyebrow="Proposed location · Thane" title="Gaimukh waterfront.">
-            Gaimukh is the proposed location for the monument. Final site selection, layout, permissions and installation arrangements must be confirmed in writing by the relevant authorities.
+            Set against the open landscape of Gaimukh waterfront, the proposed site offers an evocative setting for a monument that celebrates heritage, community and the natural movement of the sun. Site planning is centred on public access, a suitable foundation and sunlight exposure for the sundial concept.
           </SectionHeading>
-          <div className="location-grid"><figure><Image src="06_gaimukh_waterfront_overview.png" alt="Gaimukh waterfront overview"/><figcaption>Gaimukh overview</figcaption></figure><figure><Image src="07_proposed_site_area.png" alt="Proposed site area concept"/><figcaption>Proposed site area</figcaption></figure><figure><Image src="08_location_plan_concept.png" alt="Concept location plan"/><figcaption>Location plan</figcaption></figure></div>
-          <p className="image-caption">Do not use general waterfront photographs as evidence of site approval. Label all concept visuals and proposed layouts clearly.</p>
-          <div className="site-callout"><div><h3>Site planning requirements</h3><p>The layout must provide access around the monument, a suitable foundation and the sunlight exposure required if the sundial concept is pursued.</p></div><a className="button button-gold" href="#journey">View project stages <ArrowRight size={16}/></a></div>
+          <div className="location-grid"><figure><Image src="06_gaimukh_waterfront_overview.png" alt="Gaimukh waterfront overview"/><figcaption>Gaimukh Waterfront</figcaption><p>A proposed setting for a landmark that connects heritage, community and the city.</p></figure><figure><Image src="07_proposed_site_area.png" alt="Proposed site area concept"/><figcaption>The Proposed Setting</figcaption><p>A public space envisioned for the Konark-inspired stone monument.</p></figure><figure><Image src="08_location_plan_concept.png" alt="Concept location plan"/><figcaption>The Site Vision</figcaption><p>A place for visitors to encounter Odisha’s architectural legacy.</p></figure></div>
+          <p className="image-caption">The photographs and site views in this section introduce Gaimukh and the proposed setting of the monument.</p>
+          <div className="site-callout"><div><h3>Site planning requirements</h3><p>The site design brings together safe circulation around the monument, a stable foundation and clear sunlight exposure—essential elements for a welcoming public landmark and a meaningful sundial experience.</p></div><a className="button button-gold" href="#journey">View project stages <ArrowRight size={16}/></a></div>
         </div>
       </section>
 
@@ -146,12 +146,12 @@ function HomePage() {
           </SectionHeading>
           <div className="stage-grid">
             {[
-              ['stage_01_site_approvals.png','01 · SITE AND APPROVALS','Confirm the site and obtain written permissions.'],
-              ['stage_02_design.png','02 · DESIGN','Approve drawings, dimensions and engineering requirements.'],
-              ['stage_03_stone_carving.png','03 · STONE CARVING','Procure stone and complete carving in Odisha.'],
-              ['stage_04_transport.png','04 · TRANSPORT','Arrange packing and transport from Odisha to Thane.'],
-              ['stage_05_installation.png','05 · INSTALLATION','Complete foundation, delivery and monument installation.'],
-              ['stage_06_handover.png','06 · HANDOVER','Complete inspection, public information and handover arrangements.']
+              ['stage_01_site_approvals.png','01 · SITE AND APPROVALS','Coordinate with Thane Municipal Corporation to finalise the site and complete the required permissions.'],
+              ['stage_02_design.png','02 · DESIGN','Bring the monument design, dimensions and engineering details together in a coordinated final plan.'],
+              ['stage_03_stone_carving.png','03 · STONE CARVING','Select the stone and shape the wheel through the skill of Odisha’s traditional artisans.'],
+              ['stage_04_transport.png','04 · TRANSPORT','Protect, pack and transport the carved monument from Odisha to Thane.'],
+              ['stage_05_installation.png','05 · INSTALLATION','Prepare the foundation, position the monument and complete its installation.'],
+              ['stage_06_handover.png','06 · HANDOVER','Carry out final inspections, install visitor information and formally document the monument’s handover.']
             ].map(([img,title,desc])=><article className="stage-card" key={title}><Image src={img} alt=""/><b>{title}</b><p>{desc}</p></article>)}
           </div>
           <p className="disclaimer">This is the proposed execution sequence. It does not indicate that any stage has been completed.</p>
