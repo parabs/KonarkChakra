@@ -36,10 +36,10 @@ function HomePage() {
           <span className="brand-seal">KCP</span><span>KONARK CHAKRA<br/>PROJECT · THANE</span>
         </a>
         <nav className="desktop-nav">{nav.map(([label, href]) => <a key={href} href={href}>{label}</a>)}</nav>
-        <div className="nav-actions"><a className="nav-admin-link" href="?page=admin">Admin</a><a className="nav-cta" href="#contribute">Contribute</a></div>
+        <div className="nav-actions"><a className="nav-cta" href="#contribute">Contribute</a></div>
         <button className="menu-toggle" onClick={() => setMenuOpen(!menuOpen)} aria-label="Toggle navigation">{menuOpen ? <X/> : <Menu/>}</button>
       </div>
-      {menuOpen && <nav className="mobile-nav">{[...nav, ['Project stages','#journey'],['Contribute','#contribute'],['Governance','#governance'],['Contact','#contact'],['Admin access','?page=admin']].map(([label,href]) => <a key={href} href={href} onClick={closeMenu}>{label}</a>)}</nav>}
+      {menuOpen && <nav className="mobile-nav">{[...nav, ['Project stages','#journey'],['Contribute','#contribute'],['Governance','#governance'],['Contact','#contact']].map(([label,href]) => <a key={href} href={href} onClick={closeMenu}>{label}</a>)}</nav>}
     </header>
 
     <main>
@@ -55,6 +55,8 @@ function HomePage() {
           <div className="hero-actions"><a className="button button-gold" href="#sponsorship">Support the project</a><a className="button button-outline" href="#project">Explore the project</a></div>
         </div>
       </section>
+
+      <div className="project-strip"><div className="container"><b>Project lead · Thane Odia Association</b><span>Proposed location: Gaimukh waterfront, Thane</span></div></div>
 
       <section className="collective section" aria-labelledby="collective-title">
         <div className="container">
@@ -86,7 +88,6 @@ function HomePage() {
             <h2>The wheel that represents time and movement.</h2>
             <p className="heritage-lead">The stone wheels of the Konark Sun Temple are masterpieces of geometry and intricate carving. Their form is closely associated with the passage of time and the ancient practice of reading the sun’s movement through shadows.</p>
             <p>The Thane monument draws inspiration from this remarkable legacy. It is a contemporary tribute to the Konark wheel—created to share its beauty, symbolism and craftsmanship with a new generation.</p>
-            <p>The project will use the wheel’s form and carving tradition to introduce visitors to an important part of Odisha’s architectural heritage.</p>
             <blockquote>Through its form and interpretive displays, the monument invites visitors to discover the Konark wheel’s symbolism, the art of stone carving and the architectural brilliance of Odisha.</blockquote>
             <ul className="check-list"><li>Stone carving inspired by the Konark wheel</li><li>Interpretive information about its design and symbolism</li><li>A welcoming public setting, designed around access and visibility</li></ul>
           </div>
@@ -97,9 +98,8 @@ function HomePage() {
             <figcaption className="image-caption">The original Konark wheel is shown here as the architectural inspiration for the Thane monument.</figcaption>
           </figure>
           <div className="sundial-copy">
-            <p className="eyebrow">The Konark wheel as a sundial</p>
+            <p className="eyebrow">The Konark wheel is widely interpreted as a sundial—a meeting point of art, astronomy and timekeeping. The Thane project seeks to bring this idea to life by exploring how sunlight and moving shadows can reveal the passage of time.</p>
             <h2>The Konark wheel as a sundial.</h2>
-            <p className="sundial-intro">The Konark wheel is widely interpreted as a sundial—a meeting point of art, astronomy and timekeeping. The Thane project seeks to bring this idea to life by exploring how sunlight and moving shadows can reveal the passage of time.</p>
             <p className="sundial-detail">The Konark wheel is widely interpreted as a sundial. The sundial study focuses on three essentials: the wheel’s orientation, the changing path of sunlight through the seasons, and a reliable method of reading time from its shadows. The monument will be described as a working sundial only after its time-reading accuracy has been demonstrated at the site.</p>
             <p className="sundial-note">A timeless idea expressed through sunlight, shadow and the geometry of the wheel.</p>
             <h3>Sunlight, Shadow and Time</h3>
@@ -130,7 +130,7 @@ function HomePage() {
           </SectionHeading>
           <div className="location-grid"><figure><Image src="06_gaimukh_waterfront_overview.png" alt="Gaimukh waterfront overview"/><figcaption>Gaimukh Waterfront</figcaption><p>A proposed setting for a landmark that connects heritage, community and the city.</p></figure><figure><Image src="07_proposed_site_area.png" alt="Proposed site area concept"/><figcaption>The Proposed Setting</figcaption><p>A public space envisioned for the Konark-inspired stone monument.</p></figure><figure><Image src="08_location_plan_concept.png" alt="Concept location plan"/><figcaption>The Site Vision</figcaption><p>A place for visitors to encounter Odisha’s architectural legacy.</p></figure></div>
           <p className="image-caption">The photographs and site views in this section introduce Gaimukh and the proposed setting of the monument.</p>
-          <div className="site-callout"><div><h3>Site planning requirements</h3><p>The site design brings together safe circulation around the monument, a stable foundation and clear sunlight exposure—essential elements for a welcoming public landmark and a meaningful sundial experience.</p></div><a className="button button-gold" href="#journey">View project stages <ArrowRight size={16}/></a></div>
+          <div className="site-callout"><div><h3>Site planning requirements</h3><p>The site design brings together safe circulation around the monument, a stable foundation and clear sunlight exposure—essential elements for a welcoming public landmark and a meaningful sundial experience.</p></div><a className="button button-gold" href="#journey">Explore the project journey <ArrowRight size={16}/></a></div>
         </div>
       </section>
 
@@ -227,7 +227,7 @@ function HomePage() {
         </div>
       </section>
 
-      <section className="section contribution-details" id="contribute"><div className="container contribution-layout"><div><p className="eyebrow">Support the project</p><h2>Be part of the Konark Chakra legacy.</h2><p className="section-lead">Thane Odia Association is the receiving organisation for contributions to the Konark Chakra Project. To participate, contact the association through its official communication channels for contribution instructions.</p><p className="security-note">For your security, make transfers only to an account held in the name of Thane Odia Association.</p></div><div className="contribution-invitation"><p className="contribution-aside-eyebrow">A legacy we build together</p><h3>Every contribution helps turn a shared vision into a lasting landmark.</h3><p>Your support helps celebrate Odisha’s architectural heritage, honour its traditional artisans and create a place of pride for the people of Thane.</p><a className="button button-rust" href="?page=donations">Contribute to the project <ArrowRight size={16}/></a></div></div></section>
+      <section className="section contribution-details" id="contribute"><div className="container contribution-layout"><div><p className="eyebrow">Support the project</p><h2>Be part of the Konark Chakra legacy.</h2><p className="section-lead">Thane Odia Association is the receiving organisation for contributions to the Konark Chakra Project. To participate, contact the association through its official communication channels for contribution instructions.</p><p className="security-note">For your security, make transfers only to an account held in the name of Thane Odia Association.</p></div><div className="contribution-invitation"><h3>Every contribution helps turn a shared vision into a lasting landmark.</h3><p>Your support helps celebrate Odisha’s architectural heritage, honour its traditional artisans and create a place of pride for the people of Thane.</p></div></div></section>
 
 
 
@@ -262,7 +262,7 @@ function HomePage() {
         </div>
       </section>
     </main>
-    <footer className="footer"><div className="container"><b>THANE ODIA ASSOCIATION · KONARK CHAKRA PROJECT</b><span>HERITAGE · CRAFT · COMMUNITY</span><a href="?page=admin">Admin access</a></div></footer>
+    <footer className="footer"><div className="container"><b>THANE ODIA ASSOCIATION · KONARK CHAKRA PROJECT</b><span>HERITAGE · CRAFT · COMMUNITY</span></div></footer>
   </>;
 }
 
