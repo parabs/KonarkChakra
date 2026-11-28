@@ -263,6 +263,7 @@ function HomePage() {
       </section>
     </main>
     <footer className="footer"><div className="container"><b>THANE ODIA ASSOCIATION · KONARK CHAKRA PROJECT</b><span>HERITAGE · CRAFT · COMMUNITY</span></div></footer>
+    <div className="mobile-cta"><a className="button button-gold" href="#contribute">Contribute to the project</a></div>
   </>;
 }
 
