@@ -1274,3 +1274,70 @@ html { scroll-padding-top: 90px; }
     font-size: 14px;
   }
 }
+
+
+/* Compact desktop FAQ: keep all seven answers visible within a typical laptop viewport. */
+@media (min-width: 1200px) {
+  .faq-section {
+    padding: 22px 0 30px;
+  }
+  .faq-section .section-heading {
+    max-width: 1200px;
+    margin: 0 0 18px;
+  }
+  .faq-section .section-heading h2 {
+    max-width: 100%;
+    font-size: clamp(38px, 3.1vw, 48px);
+    line-height: 1.02;
+    margin-bottom: 8px;
+  }
+  .faq-section .section-lead {
+    max-width: 100%;
+    font-size: 17px;
+    line-height: 1.4;
+  }
+  .faq-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px;
+  }
+  .faq-card,
+  .faq-card-wide {
+    grid-column: auto;
+    grid-template-columns: 34px minmax(0, 1fr);
+    gap: 11px;
+    padding: 14px 15px;
+  }
+  .faq-number {
+    width: 33px;
+    min-height: 30px;
+    font-size: 14px;
+  }
+  .faq-card h3 {
+    margin: 0 0 6px;
+    font-size: 18px;
+    line-height: 1.2;
+  }
+  .faq-card p {
+    font-size: 13px;
+    line-height: 1.42;
+  }
+}
+@media (min-width: 761px) and (max-width: 1199px) {
+  .faq-section {
+    padding: 34px 0 40px;
+  }
+  .faq-section .section-heading h2 {
+    font-size: clamp(36px, 4vw, 48px);
+  }
+  .faq-card,
+  .faq-card-wide {
+    padding: 16px;
+  }
+  .faq-card h3 {
+    font-size: 19px;
+  }
+  .faq-card p {
+    font-size: 14px;
+    line-height: 1.45;
+  }
+}
