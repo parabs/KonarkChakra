@@ -64,8 +64,6 @@ export default function DonationsApp() {
     </section>}
       </div>
       </div>
-      </div>
-      </div>
       <div className="konark-donation-right">
     <section className="konark-funding-info" aria-label="Project funding information">
       <article className="konark-funds-panel">
