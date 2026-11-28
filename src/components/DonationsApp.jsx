@@ -26,7 +26,7 @@ export default function DonationsApp() {
   };
   const copy = async () => { try { await navigator.clipboard.writeText(record.confirmationCode); setCopied(true); } catch { setError('Unable to copy the confirmation PIN.'); } };
   return <main className="konark-donation-page">
-    <header className="konark-donation-header"><a href="/" className="konark-back"><ArrowLeft size={16}/> Project website</a><div className="konark-mini-brand">KONARK CHAKRA PROJECT <span>· THANE</span></div><a className="konark-header-admin" href="/admin">Admin access</a></header>
+    <header className="konark-donation-header"><a href="./" className="konark-back"><ArrowLeft size={16}/> Project website</a><div className="konark-mini-brand">KONARK CHAKRA PROJECT <span>· THANE</span></div><a className="konark-header-admin" href="?page=admin">Admin access</a></header>
     <div className="konark-donation-layout">
       <div className="konark-donation-left">
     <div className="konark-donation-shell">
@@ -60,7 +60,7 @@ export default function DonationsApp() {
         <div className="konark-reference"><span>Contribution reference</span><strong>{record.donationId}</strong><span>Contribution level</span><strong>{record.contributionLevel || 'Custom'}</strong><span>Amount</span><strong>₹{money(record.amount)}</strong><span>Purpose</span><strong>{record.sevaHead}</strong></div>
         <div className="konark-pin"><span>Volunteer verification PIN</span><strong>{record.confirmationCode}</strong><button onClick={copy} type="button"><Copy size={15}/>{copied?'Copied':'Copy PIN'}</button></div>
         <p className="konark-form-foot">Share the PIN with an authorised project volunteer only after the payment has been made. A receipt is issued only after payment verification.</p>
-        <a className="konark-back-home" href="/">Return to project website</a>
+        <a className="konark-back-home" href="./">Return to project website</a>
     </section>}
       </div>
       </div>
@@ -81,7 +81,7 @@ export default function DonationsApp() {
         <h2>Corporate sponsorship and in-kind support</h2>
         <p>Businesses and institutions can help shape this landmark through sponsorship or in-kind support—including stone, transportation, equipment and professional expertise.</p>
         <p>Bring your organisation’s support to a lasting public heritage initiative through sponsorship, materials, logistics, equipment or professional expertise.</p>
-        <a className="konark-sponsor-cta" href="/#contact">Institutional enquiry</a>
+        <a className="konark-sponsor-cta" href="./#contact">Institutional enquiry</a>
       </article>
     </section>
       </div>
