@@ -1725,3 +1725,38 @@ html { scroll-padding-top: 90px; }
   .updates-grid .update-copy h3 { font-size: 18px; }
   .updates-grid .update-copy p { font-size: 12px; }
 }
+
+
+/* Client-reference alignment: association placeholders and sponsorship section */
+.client-partner-row{margin-bottom:18px}
+.client-partner-logos{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+.client-logo-slot{min-height:112px;border:1px dashed #b5a28a;background:linear-gradient(145deg,#fffdf8,#f2e8d8);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:14px;gap:9px;color:#76685a}
+.client-logo-slot strong{font:700 10px Arial,sans-serif;letter-spacing:.06em;text-transform:uppercase}
+.client-logo-mark{width:48px;height:42px;border:1px dashed #b5a28a;border-radius:50%;display:grid;place-items:center;font:10px Arial,sans-serif;color:#8b7967}
+.client-fund-section{background:#211710;color:#f8ecda}
+.client-fund-section .section-heading{max-width:780px;margin-bottom:34px}
+.client-fund-section .section-heading h2{color:#fff4e3}
+.client-fund-section .section-lead{color:#d6c5b2}
+.client-tiers{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin:30px 0 20px}
+.client-tier{border:1px solid #725b43;padding:24px;background:#2c1e15;min-width:0}
+.client-tier:first-child{border-color:#d5aa66}
+.client-tier small{font:700 10px Arial,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#d6aa65}
+.client-tier h3{margin:10px 0 4px;color:#fff4e3}
+.client-amount{font-size:clamp(27px,3vw,36px);color:#edc77f;margin:16px 0 10px}
+.client-tier p{font-size:14px;color:#d1c0ad;margin:0}
+.client-any-amount{border:1px solid #725b43;padding:18px 22px;display:flex;justify-content:space-between;gap:18px;align-items:center;flex-wrap:wrap}
+.client-any-amount strong,.client-any-amount span{display:block}
+.client-any-amount strong{color:#edc77f}
+.client-any-amount span{font-size:13px;color:#d4c2ae;margin-top:4px}
+.client-fund-columns{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:34px}
+.client-fund-panel{border:1px solid #604b38;padding:24px;min-width:0}
+.client-fund-panel h3{color:#f0cb87}
+.client-fund-panel p{color:#d4c2ae;font-size:14px;line-height:1.7;margin:16px 0 0}
+.client-fund-panel>div{display:flex;justify-content:space-between;gap:12px;padding:11px 0;border-bottom:1px solid #594635;font-size:14px}
+.client-fund-panel em{font:10px Arial,sans-serif;color:#c5a77d;white-space:nowrap}
+.client-fund-panel .button{margin-top:10px}
+@media(max-width:760px){
+ .client-partner-logos{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .client-tiers,.client-fund-columns{grid-template-columns:1fr}
+ .client-fund-section .section-heading{margin-bottom:26px}
+}
