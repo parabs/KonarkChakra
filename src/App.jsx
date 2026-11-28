@@ -82,6 +82,7 @@ function HomePage() {
             <h2>The wheel that represents time and movement.</h2>
             <p className="heritage-lead">The stone wheels of the Konark Sun Temple are masterpieces of geometry and intricate carving. Their form is closely associated with the passage of time and the ancient practice of reading the sun’s movement through shadows.</p>
             <p>The Thane monument draws inspiration from this remarkable legacy. It is a contemporary tribute to the Konark wheel—created to share its beauty, symbolism and craftsmanship with a new generation.</p>
+            <p>The project will use the wheel’s form and carving tradition to introduce visitors to an important part of Odisha’s architectural heritage.</p>
             <blockquote>Through its form and interpretive displays, the monument invites visitors to discover the Konark wheel’s symbolism, the art of stone carving and the architectural brilliance of Odisha.</blockquote>
             <ul className="check-list"><li>Stone carving inspired by the Konark wheel</li><li>Interpretive information about its design and symbolism</li><li>A welcoming public setting, designed around access and visibility</li></ul>
           </div>
