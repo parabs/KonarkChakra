@@ -81,7 +81,7 @@ export default function DonationsApp() {
         <h2>Corporate sponsorship and in-kind support</h2>
         <p>Businesses and institutions can help shape this landmark through sponsorship or in-kind support—including stone, transportation, equipment and professional expertise.</p>
         <p>Bring your organisation’s support to a lasting public heritage initiative through sponsorship, materials, logistics, equipment or professional expertise.</p>
-        <a className="konark-sponsor-cta" href={`${import.meta.env.BASE_URL}#contact`}>Contact the project team</a>
+        <a className="konark-sponsor-cta" href={`${import.meta.env.BASE_URL}#contact`}>Institutional enquiry</a>
       </article>
     </section>
       </div>
