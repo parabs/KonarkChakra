@@ -82,9 +82,12 @@ export default function DonationsApp() {
         <div className="konark-pin"><span>Volunteer verification PIN</span><strong>{record.confirmationCode}</strong><button onClick={copy} type="button"><Copy size={15}/>{copied?'Copied':'Copy PIN'}</button></div>
         <p className="konark-form-foot">Share the PIN with an authorised project volunteer only after the payment has been made. A receipt is issued only after payment verification.</p>
         <a className="konark-back-home" href="/">Return to project website</a>
-      </section>}
+    </section>}
       </div>
-    </div>
-    <footer className="konark-donation-footer">KONARK CHAKRA PROJECT · THANE ODIA ASSOCIATION</footer>
+      </div>
+      </div>
+      <footer className="konark-donation-footer">
+        KONARK CHAKRA PROJECT · THANE ODIA ASSOCIATION
+      </footer>
   </main>;
 }
