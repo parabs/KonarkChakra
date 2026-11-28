@@ -186,13 +186,15 @@ function HomePage() {
 
       <section className="section client-fund-section" id="sponsorship">
         <div className="container">
-          <SectionHeading eyebrow="Project support and accountability" title="A shared effort to bring the Konark Chakra to Thane.">
-            Contributions from individuals, families and institutions help make the project possible. For contribution levels and payment instructions, visit the dedicated contribution page.
+          <SectionHeading eyebrow="Contribute to the project" title="Help bring the Konark Chakra to Thane.">
+            Every contribution brings this shared vision closer. Individuals and families can participate through the contribution levels below or contact Thane Odia Association for current payment instructions.
           </SectionHeading>
-          <div className="client-support-link">
-            <div><strong>Would you like to contribute?</strong><span>See the contribution options and submit your details through the dedicated contribution page.</span></div>
-            <a className="button button-gold" href="?page=donations">View contribution options</a>
+          <div className="client-contribution-tiers">
+            <article className="client-contribution-tier"><small>Contribution level</small><h3>Surya Patron</h3><div className="client-tier-amount">₹25,000</div><p>Help shape the stone, support the artisans and bring the Konark-inspired wheel to life.</p></article>
+            <article className="client-contribution-tier"><small>Contribution level</small><h3>Chakra Partner</h3><div className="client-tier-amount">₹10,000</div><p>Support the monument’s journey to Thane, its foundation and its installation.</p></article>
+            <article className="client-contribution-tier"><small>Contribution level</small><h3>Shilpi Supporter</h3><div className="client-tier-amount">₹5,000</div><p>Be part of the collective effort behind the stone, the craft and the creation of the monument.</p></article>
           </div>
+          <div className="client-any-amount"><div><strong>Other contribution amounts</strong><span>For contribution instructions, connect directly with Thane Odia Association through its official channels.</span></div><a className="button button-gold" href="#contribute">Contribution details</a></div>
           <div className="client-fund-columns">
             <article className="client-fund-panel"><h3>Planned use of funds</h3>
               <div><span>Stone procurement and carving</span><em>Odisha</em></div><div><span>Artisan charges</span><em>Carving</em></div><div><span>Transportation</span><em>Logistics</em></div><div><span>Foundation and civil works</span><em>Thane</em></div><div><span>Engineering and installation</span><em>Execution</em></div>
