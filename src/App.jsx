@@ -5,7 +5,7 @@ import {
 import AdminAccess from './components/AdminAccess.jsx';
 import DonationsApp from './components/DonationsApp.jsx';
 
-const A = '/assets/';
+const A = `${import.meta.env.BASE_URL}assets/`;
 const nav = [
   ['Project', '#project'], ['The Chakra', '#monument'], ['Location', '#location'],
   ['Why it matters', '#why-this-project'], ['Updates', '#updates'], ['FAQs', '#faq']
