@@ -8,7 +8,8 @@ import DonationsApp from './components/DonationsApp.jsx';
 const A = `${import.meta.env.BASE_URL}assets/`;
 const nav = [
   ['Project', '#project'], ['The Chakra', '#monument'], ['Location', '#location'],
-  ['Why it matters', '#why-this-project'], ['Updates', '#updates'], ['FAQs', '#faq']
+  ['Why it matters', '#why-this-project'], ['Updates', '#updates'], ['FAQs', '#faq'],
+  ['Support', '#sponsorship']
 ];
 
 function Image({ src, alt, className = '' }) {
@@ -35,10 +36,10 @@ function HomePage() {
           <span className="brand-seal">KCP</span><span>KONARK CHAKRA<br/>PROJECT · THANE</span>
         </a>
         <nav className="desktop-nav">{nav.map(([label, href]) => <a key={href} href={href}>{label}</a>)}</nav>
-        <div className="nav-actions"><a className="nav-admin-link" href="?page=admin">Admin</a><a className="nav-cta" href="?page=donations">Contribute</a></div>
+        <div className="nav-actions"><a className="nav-admin-link" href="?page=admin">Admin</a><a className="nav-cta" href="#contribute">Contribute</a></div>
         <button className="menu-toggle" onClick={() => setMenuOpen(!menuOpen)} aria-label="Toggle navigation">{menuOpen ? <X/> : <Menu/>}</button>
       </div>
-      {menuOpen && <nav className="mobile-nav">{[...nav, ['Project stages','#journey'],['Governance','#governance'],['Contact','#contact'],['Admin access','/admin']].map(([label,href]) => <a key={href} href={href} onClick={closeMenu}>{label}</a>)}</nav>}
+      {menuOpen && <nav className="mobile-nav">{[...nav, ['Project stages','#journey'],['Contribute','#contribute'],['Governance','#governance'],['Contact','#contact'],['Admin access','?page=admin']].map(([label,href]) => <a key={href} href={href} onClick={closeMenu}>{label}</a>)}</nav>}
     </header>
 
     <main>
@@ -51,14 +52,17 @@ function HomePage() {
           <h1>Konark Chakra</h1>
           <p className="hero-subtitle">A stone monument inspired by the Konark Sun Temple wheel</p>
           <p className="hero-copy">Inspired by the timeless grandeur of the Konark Sun Temple, the Konark Chakra Project seeks to bring a magnificent stone replica of its iconic wheel to Thane. More than a monument, it is a heartfelt tribute by the Odia community of Thane to the rich cultural and architectural heritage of Odisha. Built on shared pride, collective participation and a deep connection to our roots, the project aims to create a lasting symbol of Odisha’s legacy for generations to discover, admire and cherish.</p>
-          <div className="hero-actions"><a className="button button-gold" href="#contribute">Support the project</a><a className="button button-outline" href="#project">Explore the project</a></div>
+          <div className="hero-actions"><a className="button button-gold" href="#sponsorship">Support the project</a><a className="button button-outline" href="#project">Explore the project</a></div>
         </div>
       </section>
 
       <section className="collective section" aria-labelledby="collective-title">
         <div className="container">
           <div className="collective-intro"><div><p className="eyebrow">Collective initiative</p><h2 id="collective-title">One vision. Many hands. A shared tribute to Odisha’s heritage.</h2></div><p>Led by Thane Odia Association, the Konark Chakra Project brings together all Odia Associations and Community Groups across Thane in a collective tribute to Odisha’s timeless heritage. United by pride in their roots, the community is coming together to celebrate its rich cultural legacy, honour the mastery of traditional craftsmanship and create a landmark that will inspire generations to come.</p></div>
-          <div className="association-row"><div className="toa-card"><Image src="toa_logo.png" alt="Thane Odia Association logo"/><div><b>Lead organisation</b><span>Thane Odia Association</span></div></div><div className="community-note"><span className="community-mark">✳</span><div><b>One community. A shared endeavour.</b><span>Odia associations, community groups, families and volunteers across Thane</span></div></div></div>
+          <div className="association-row client-partner-row"><div className="toa-card"><Image src="toa_logo.png" alt="Thane Odia Association logo"/><div><b>Project lead</b><span>Thane Odia Association</span></div></div></div>
+          <div className="client-partner-logos" aria-label="Participating association logos">
+            {Array.from({length:4},(_,index)=><div className="client-logo-slot" key={index}><span className="client-logo-mark">LOGO</span><strong>Participating association</strong></div>)}
+          </div>
         </div>
       </section>
 
@@ -180,6 +184,31 @@ function HomePage() {
         </div>
       </section>
 
+      <section className="section client-fund-section" id="sponsorship">
+        <div className="container">
+          <SectionHeading eyebrow="Contribute to the project" title="Help bring the Konark Chakra to Thane.">
+            Every contribution brings this shared vision closer. Individuals and families can participate through the contribution levels below or contact Thane Odia Association for current payment instructions.
+          </SectionHeading>
+          <div className="client-tiers">
+            <article className="client-tier"><small>Contribution level</small><h3>Surya Patron</h3><div className="client-amount">₹25,000</div><p>Help shape the stone, support the artisans and bring the Konark-inspired wheel to life.</p></article>
+            <article className="client-tier"><small>Contribution level</small><h3>Chakra Partner</h3><div className="client-amount">₹10,000</div><p>Support the monument’s journey to Thane, its foundation and its installation.</p></article>
+            <article className="client-tier"><small>Contribution level</small><h3>Shilpi Supporter</h3><div className="client-amount">₹5,000</div><p>Be part of the collective effort behind the stone, the craft and the creation of the monument.</p></article>
+          </div>
+          <div className="client-any-amount"><div><strong>Other contribution amounts</strong><span>For contribution instructions, connect directly with Thane Odia Association through its official channels.</span></div><a className="button button-gold" href="#contribute">Contribution details</a></div>
+          <div className="client-fund-columns">
+            <article className="client-fund-panel"><h3>Planned use of funds</h3>
+              <div><span>Stone procurement and carving</span><em>Odisha</em></div><div><span>Artisan charges</span><em>Carving</em></div><div><span>Transportation</span><em>Logistics</em></div><div><span>Foundation and civil works</span><em>Thane</em></div><div><span>Engineering and installation</span><em>Execution</em></div>
+              <p>Contributions support the essential elements of the project: stone, carving, artisan work, transportation, foundation, civil works and installation. Thane Odia Association maintains the project’s contribution and expenditure records.</p>
+            </article>
+            <article className="client-fund-panel"><h3>Corporate sponsorship and in-kind support</h3>
+              <p>Businesses and institutions can help shape this landmark through sponsorship or in-kind support—including stone, transportation, equipment and professional expertise.</p>
+              <p>Bring your organisation’s support to a lasting public heritage initiative through sponsorship, materials, logistics, equipment or professional expertise.</p>
+              <a className="button button-gold" href="#contact">Institutional enquiry</a>
+            </article>
+          </div>
+        </div>
+      </section>
+
       <section className="section faq-section" id="faq">
         <div className="container">
           <SectionHeading eyebrow="Frequently asked questions" title="About the Konark Chakra Project in Thane.">
@@ -209,29 +238,7 @@ function HomePage() {
 
       <section className="section contribution-details" id="contribute"><div className="container contribution-layout"><div><p className="eyebrow">Support the project</p><h2>Be part of the Konark Chakra legacy.</h2><p className="section-lead">Thane Odia Association is the receiving organisation for contributions to the Konark Chakra Project. To participate, contact the association through its official communication channels for contribution instructions.</p><p className="security-note">For your security, make transfers only to an account held in the name of Thane Odia Association.</p></div><div className="contribution-invitation"><p className="contribution-aside-eyebrow">A legacy we build together</p><h3>Every contribution helps turn a shared vision into a lasting landmark.</h3><p>Your support helps celebrate Odisha’s architectural heritage, honour its traditional artisans and create a place of pride for the people of Thane.</p><a className="button button-rust" href="?page=donations">Contribute to the project <ArrowRight size={16}/></a></div></div></section>
 
-      <section className="section home-funding-section" aria-label="Project funding and sponsorship">
-        <div className="container">
-          <div className="konark-funding-info">
-            <article className="konark-funds-panel">
-              <h2>Planned use of funds</h2>
-              <dl>
-                <div><dt>Stone procurement and carving</dt><dd>Odisha</dd></div>
-                <div><dt>Artisan charges</dt><dd>Carving</dd></div>
-                <div><dt>Transportation</dt><dd>Logistics</dd></div>
-                <div><dt>Foundation and civil works</dt><dd>Thane</dd></div>
-                <div><dt>Engineering and installation</dt><dd>Execution</dd></div>
-              </dl>
-              <p>Contributions support the essential elements of the project: stone, carving, artisan work, transportation, foundation, civil works and installation. Thane Odia Association maintains the project’s contribution and expenditure records.</p>
-            </article>
-            <article className="konark-sponsor-panel">
-              <h2>Corporate sponsorship and in-kind support</h2>
-              <p>Businesses and institutions can help shape this landmark through sponsorship or in-kind support—including stone, transportation, equipment and professional expertise.</p>
-              <p>Bring your organisation’s support to a lasting public heritage initiative through sponsorship, materials, logistics, equipment or professional expertise.</p>
-              <a className="konark-sponsor-cta" href="#contact">Institutional enquiry</a>
-            </article>
-          </div>
-        </div>
-      </section>
+
 
       <section className="section governance-section" id="governance">
         <div className="container">
