@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import {
-  ArrowRight, Menu, X, MapPin, Users, Mail, Instagram
+  ArrowRight, Menu, X, Mail, Instagram
 } from 'lucide-react';
 import AdminAccess from './components/AdminAccess.jsx';
 import DonationsApp from './components/DonationsApp.jsx';
@@ -43,8 +43,9 @@ function HomePage() {
 
     <main>
       <section className="hero" id="home">
-        <Image src="01_hero_waterfront_chakra.png" alt="Concept visual of a carved Konark Chakra monument at a waterfront at sunset" className="hero-image"/>
+        <Image src="01_hero_waterfront_chakra.png" alt="Concept visual of a carved Konark Chakra monument at a waterfront under a blue sky" className="hero-image"/>
         <div className="hero-overlay"/>
+        <p className="hero-caption">Concept visualisation · Proposed Konark Chakra monument</p>
         <div className="container hero-content">
           <p className="eyebrow gold">A community-led heritage monument · Thane</p>
           <h1>Konark Chakra</h1>
@@ -52,7 +53,6 @@ function HomePage() {
           <p className="hero-copy">Inspired by the timeless grandeur of the Konark Sun Temple, the Konark Chakra Project seeks to bring a magnificent stone replica of its iconic wheel to Thane. More than a monument, it is a heartfelt tribute by the Odia community of Thane to the rich cultural and architectural heritage of Odisha. Built on shared pride, collective participation and a deep connection to our roots, the project aims to create a lasting symbol of Odisha’s legacy for generations to discover, admire and cherish.</p>
           <div className="hero-actions"><a className="button button-gold" href="#contribute">Support the project</a><a className="button button-outline" href="#project">Explore the project</a></div>
         </div>
-        <div className="hero-facts"><div><Users/><span><b>Project lead</b>Thane Odia Association</span></div><div><MapPin/><span><b>Proposed location</b>Gaimukh, Thane · Subject to written approvals and final site arrangements</span></div></div>
       </section>
 
       <section className="collective section" aria-labelledby="collective-title">
@@ -68,9 +68,9 @@ function HomePage() {
             Inspired by one of India’s most celebrated architectural masterpieces, the Konark Chakra brings the form and symbolism of the Sun Temple wheel into the heart of Thane. The six-foot design reference honours Odisha’s stone-carving tradition and its extraordinary artisans.
           </SectionHeading>
           <div className="feature-grid">
-            <article className="feature-card"><Image src="02_stone_chakra_monument.png" alt="Concept render of the proposed stone Chakra monument"/><div className="feature-copy"><small>01 · THE MONUMENT</small><h3>Stone Chakra</h3><p>A six-foot wheel is the current design reference. Final dimensions will follow approved engineering drawings.</p></div></article>
-            <article className="feature-card"><Image src="03_traditional_stone_carving_artisan.png" alt="Traditional stone artisan carving a wheel detail"/><div className="feature-copy"><small>02 · THE CRAFT</small><h3>Traditional stone carving</h3><p>The monument is planned to be carved in Odisha by traditional stone artisans.</p></div></article>
-            <article className="feature-card"><Image src="04_chakra_technical_drawing.png" alt="Technical drawing of a proposed Chakra monument"/><div className="feature-copy"><small>03 · THE DESIGN</small><h3>Design and installation</h3><p>Structural design, foundation details and installation method will be finalised with the relevant technical teams.</p></div></article>
+            <article className="feature-card"><Image src="02_stone_chakra_monument.png" alt="Concept render of the proposed stone Chakra monument"/><div className="feature-copy"><small>01 · THE MONUMENT</small><h3>Stone Chakra</h3><p>A six-foot stone wheel draws its form from the celebrated Konark Sun Temple and its timeless artistry.</p></div></article>
+            <article className="feature-card"><Image src="03_traditional_stone_carving_artisan.png" alt="Traditional stone artisan carving a wheel detail"/><div className="feature-copy"><small>02 · THE CRAFT</small><h3>Traditional stone carving</h3><p>At its heart is the skill of Odisha’s traditional stone artisans, whose craft has shaped the region’s enduring architectural legacy.</p></div></article>
+            <article className="feature-card"><Image src="04_chakra_technical_drawing.png" alt="Technical drawing of a proposed Chakra monument"/><div className="feature-copy"><small>03 · THE DESIGN</small><h3>Design and installation</h3><p>The wheel, its pedestal and foundation are conceived as one harmonious monument, balancing sculptural presence, structural integrity and public access.</p></div></article>
           </div>
         </div>
       </section>
