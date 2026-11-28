@@ -980,3 +980,10 @@ html { scroll-padding-top: 90px; }
   .konark-donation-right { order: 1; }
   .konark-donation-left > .konark-donation-shell { margin: 0; }
 }
+
+@media (max-width: 620px) {
+  .konark-donation-header { grid-template-columns: auto 1fr auto; padding: 0 10px; gap: 8px; }
+  .konark-donation-header .konark-back { font-size: 10px; white-space: nowrap; }
+  .konark-mini-brand { grid-column: 2; font-size: 7px; letter-spacing: .06em; white-space: nowrap; }
+  .konark-header-admin { display: block; font-size: 10px; white-space: nowrap; }
+}
